@@ -9,6 +9,9 @@ NOTE:
 ------
 PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.azul-gris{
+  background-color: #37474F;
+}
 
 .search {
   border-radius: 15px;
@@ -23,7 +26,7 @@ nav .nav-wrapper {
 }
 
 .portada{
-   background: url(../img/cover.jpg) no-repeat top;
+   background: url(../img/cover2.jpg) no-repeat top;
    background-size: cover;
    min-height: 500px
 }
@@ -39,9 +42,9 @@ header .brand-logo {
   padding: 18px 0 10px 50px;
 }
 
-.picker__date-display {
+/*.picker__date-display {
   background-color: #E45D59;
-}
+}*/
 
 .prefix {
   padding-top: 10px !important;
