@@ -33,7 +33,7 @@
         <ul class="right hide-on-med-and-down">
           <li>
             <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
-              <i class="material-icons">shopping_cart<small class="notification-badge pink accent-2">3</small></i>
+              <i class="material-icons">shopping_cart<small class="notification-badge">3</small></i>
             </a>
             <ul id="notifications-dropdown" class="dropdown-content">
               <li>
@@ -82,6 +82,12 @@
 </header>
 <!-- FIN NAVEGADOR -->
 
+<div id="toast-container">
+  <div class="toast" style="top: 0px; opacity: 1; max-width: 600px; display: none">
+    <span>Aca van las notificaciones</span>
+    <button class="btn-flat toast-action">Deshacer</button>
+  </div>
+</div>
 
 <div class="portada valign-wrapper">
   <div class="row valign-wrapper" style="margin: 0; width: 100%">
@@ -286,6 +292,11 @@
 <script src="js/masonry.pkgd.min.js"></script>
 <script src="js/custom-script.js"></script>
 <script src="http://localhost:35729/livereload.js"></script>
+
+<!-- <script type="text/javascript">
+var $toastContent = $('<span>I am toast content</span>').add($('<button class="btn-flat toast-action">Deshacer</button>'));
+Materialize.toast($toastContent, 10000);
+</script> -->
 
 
 <footer class="page-footer">
