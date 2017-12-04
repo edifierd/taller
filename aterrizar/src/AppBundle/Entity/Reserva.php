@@ -35,6 +35,20 @@ class Reserva
      */
     private $user;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fecha_inicio", type="datetime")
+     */
+    private $fecha_inicio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fecha_fin", type="datetime")
+     */
+    private $fecha_fin;
+
 
     /**
      * Get id
@@ -123,5 +137,53 @@ class Reserva
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set fechaInicio
+     *
+     * @param \DateTime $fechaInicio
+     *
+     * @return Reserva
+     */
+    public function setFechaInicio($fechaInicio)
+    {
+        $this->fecha_inicio = $fechaInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaInicio
+     *
+     * @return \DateTime
+     */
+    public function getFechaInicio()
+    {
+        return $this->fecha_inicio;
+    }
+
+    /**
+     * Set fechaFin
+     *
+     * @param \DateTime $fechaFin
+     *
+     * @return Reserva
+     */
+    public function setFechaFin($fechaFin)
+    {
+        $this->fecha_fin = $fechaFin;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaFin
+     *
+     * @return \DateTime
+     */
+    public function getFechaFin()
+    {
+        return $this->fecha_fin;
     }
 }
