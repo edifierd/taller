@@ -3,16 +3,14 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
-use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * User
+ * Servicio
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ORM\Table(name="servicio")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ServicioRepository")
  */
-class User extends BaseUser
+class Servicio
 {
     /**
      * @var int
@@ -21,24 +19,14 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="Reserva", mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="Reserva", inversedBy="servicios")
      */
     private $reservas;
 
-    /**
-     *
-     * @ORM\OneToOne(targetEntity="Carrito", mappedBy="user")
-     */
-    private $carrito;
-
-    public function __construct()
-    {
-        $this->reservas = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -49,29 +37,12 @@ class User extends BaseUser
     {
         return $this->id;
     }
-
     /**
-     * Set carrito
-     *
-     * @param string $carrito
-     *
-     * @return User
+     * Constructor
      */
-    public function setCarrito($carrito)
+    public function __construct()
     {
-        $this->carrito = $carrito;
-
-        return $this;
-    }
-
-    /**
-     * Get carrito
-     *
-     * @return string
-     */
-    public function getCarrito()
-    {
-        return $this->carrito;
+        $this->reservas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -79,7 +50,7 @@ class User extends BaseUser
      *
      * @param \AppBundle\Entity\Reserva $reserva
      *
-     * @return User
+     * @return Servicio
      */
     public function addReserva(\AppBundle\Entity\Reserva $reserva)
     {
