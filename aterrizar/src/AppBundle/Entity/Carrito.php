@@ -30,13 +30,13 @@ class Carrito
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Servicio")
-     * @ORM\JoinTable(name="carrito_servicios",
+     * @ORM\ManyToMany(targetEntity="ServicioReserva")
+     * @ORM\JoinTable(name="carrito_servicios_reserva",
      *      joinColumns={@ORM\JoinColumn(name="carrito_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="servicio_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="servicio_reserva_id", referencedColumnName="id")}
      *      )
      */
-    private $servicios;
+    private $servicios_reserva;
 
 
     /**
@@ -126,5 +126,39 @@ class Carrito
     public function removeServicio(\AppBundle\Entity\Servicio $servicio)
     {
         $this->servicios->removeElement($servicio);
+    }
+
+    /**
+     * Add serviciosReserva
+     *
+     * @param \AppBundle\Entity\ServicioReserva $serviciosReserva
+     *
+     * @return Carrito
+     */
+    public function addServiciosReserva(\AppBundle\Entity\ServicioReserva $serviciosReserva)
+    {
+        $this->servicios_reserva[] = $serviciosReserva;
+
+        return $this;
+    }
+
+    /**
+     * Remove serviciosReserva
+     *
+     * @param \AppBundle\Entity\ServicioReserva $serviciosReserva
+     */
+    public function removeServiciosReserva(\AppBundle\Entity\ServicioReserva $serviciosReserva)
+    {
+        $this->servicios_reserva->removeElement($serviciosReserva);
+    }
+
+    /**
+     * Get serviciosReserva
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServiciosReserva()
+    {
+        return $this->servicios_reserva;
     }
 }

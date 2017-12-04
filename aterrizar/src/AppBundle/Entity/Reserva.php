@@ -23,10 +23,13 @@ class Reserva
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="reservas")
-     * @ORM\JoinTable(name="reserva_servicios")
+     * @ORM\ManyToMany(targetEntity="ServicioReserva")
+     * @ORM\JoinTable(name="reserva_servicios_reserva",
+     *      joinColumns={@ORM\JoinColumn(name="reserva_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="servicio_reserva_id", referencedColumnName="id")}
+     *      )
      */
-    private $servicios;
+    private $servicios_reserva;
 
     /**
      *
@@ -36,19 +39,11 @@ class Reserva
     private $user;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="fecha_inicio", type="datetime")
+     * @ORM\Column(name="fecha", type="datetimetz")
      */
-    private $fecha_inicio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="fecha_fin", type="datetime")
-     */
-    private $fecha_fin;
-
+    private $fecha;
 
     /**
      * Get id
@@ -185,5 +180,63 @@ class Reserva
     public function getFechaFin()
     {
         return $this->fecha_fin;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     *
+     * @return Reserva
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Add serviciosReserva
+     *
+     * @param \AppBundle\Entity\ServicioReserva $serviciosReserva
+     *
+     * @return Reserva
+     */
+    public function addServiciosReserva(\AppBundle\Entity\ServicioReserva $serviciosReserva)
+    {
+        $this->servicios_reserva[] = $serviciosReserva;
+
+        return $this;
+    }
+
+    /**
+     * Remove serviciosReserva
+     *
+     * @param \AppBundle\Entity\ServicioReserva $serviciosReserva
+     */
+    public function removeServiciosReserva(\AppBundle\Entity\ServicioReserva $serviciosReserva)
+    {
+        $this->servicios_reserva->removeElement($serviciosReserva);
+    }
+
+    /**
+     * Get serviciosReserva
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServiciosReserva()
+    {
+        return $this->servicios_reserva;
     }
 }

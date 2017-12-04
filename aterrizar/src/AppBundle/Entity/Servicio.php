@@ -23,9 +23,9 @@ class Servicio
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Reserva", inversedBy="servicios")
+     * @ORM\ManyToMany(targetEntity="ServicioReserva", inversedBy="servicios")
      */
-    private $reservas;
+    private $servicio_reservas;
 
 
     /**
@@ -77,5 +77,39 @@ class Servicio
     public function getReservas()
     {
         return $this->reservas;
+    }
+
+    /**
+     * Add servicioReserva
+     *
+     * @param \AppBundle\Entity\ServicioReserva $servicioReserva
+     *
+     * @return Servicio
+     */
+    public function addServicioReserva(\AppBundle\Entity\ServicioReserva $servicioReserva)
+    {
+        $this->servicio_reservas[] = $servicioReserva;
+
+        return $this;
+    }
+
+    /**
+     * Remove servicioReserva
+     *
+     * @param \AppBundle\Entity\ServicioReserva $servicioReserva
+     */
+    public function removeServicioReserva(\AppBundle\Entity\ServicioReserva $servicioReserva)
+    {
+        $this->servicio_reservas->removeElement($servicioReserva);
+    }
+
+    /**
+     * Get servicioReservas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServicioReservas()
+    {
+        return $this->servicio_reservas;
     }
 }
