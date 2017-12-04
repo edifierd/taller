@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="card azul-gris" style="height:400px">
+        <div class="card-content search white-text">
+          <span class="card-title">Encontrá tu vuelo</span>
+          <form action="#">
+            <div class="row">
+              <div class="col s12">
+                <input name="group1" type="radio" id="idavuelta" checked />
+                <label class="white-text" for="idavuelta">Ida y vuelta</label>
+                <input name="group1" type="radio" id="soloida" />
+                <label class="white-text" for="soloida">Solo ida</label>
+              </div>
+            </div>
+            <div class="input-field col s12">
+              <span class="material-icons prefix">flight_takeoff</span>
+              <input id="origen" class="validate" name="origen" type="text" placeholder="Origen">
+            </div>
+            <div class="input-field col s12">
+              <span class="material-icons prefix">flight_land</span>
+              <input id="destino" class="validate" name="destino" type="text" placeholder="Destino">
+            </div>
+            <label class="col s12 white-text">FECHAS</label>
+            <div class="input-field col s12 m6">
+              <span class="material-icons prefix">date_range</span>
+              <input id="ida" name="ida" type="text" class="datepicker" placeholder="Entrada">
+            </div>
+            <div class="input-field col s12 m6">
+              <span class="material-icons prefix">date_range</span>
+              <input id="regreso" name="regreso" type="text" class="datepicker" placeholder="Salida">
+            </div>
+            <div class="input-field col s12 m6">
+              <span class="material-icons prefix">person</span>
+              <input type="number" class="validate" name="personas" placeholder="Cant. personas">
+            </div>
+            <div class="input-field col s12 m6 center" style="padding-top: 10px">
+              <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6"> <span></span>
+
+      {% for i in 0..10 %}
+      <div class="col s12">
+        <div class="card darken-1">
+          <div class="card-content">
+            <span class="card-title">LATAM Airlines</span>
+            <p>
+              <i class="material-icons">airplanemode_active</i>
+              IDA <b>{{ "now"|date("m/d/Y") }}</b>
+            </p>
+            <div class="row" style="margin-top:18px">
+              <div class="col s2">
+                <p>
+                  <span style="border: 1px solid #c2595e; padding: 10px;">EZE</span>
+                  <span>{{ "now"|date('H:i') }}</span>
+                </p>
+              </div>
+              <div class="col s8">
+                <hr>
+              </div>
+              <div class="col s2">
+                <p>
+                  <span style="border: 1px solid #c2595e; padding: 10px;">SJO</span>
+                  <span>{{ "now"|date('H:i') }}</span>
+                </p>
+              </div>
+            </div>
+            <!-- <p>
+              <i class="material-icons">airplanemode_active</i>
+              VUELTA <b>{{ "now"|date("m/d/Y") }}</b>
+            </p>
+
+            <div class="row" style="margin-top:18px">
+              <div class="col s2">
+                <p>
+                  <span style="border: 1px solid #c2595e; padding: 10px;">EZE</span>
+                  <span>{{ "now"|date('H:i') }}</span>
+                </p>
+              </div>
+              <div class="col s8 sep">
+                <hr>
+              </div>
+              <div class="col s2">
+                <p>
+                  <span style="border: 1px solid #c2595e; padding: 10px;">SJO</span>
+                  <span>{{ "now"|date('H:i') }}</span>
+                </p>
+              </div>
+            </div> -->
+
+          </div>
+          <div class="card-action">
+            <a href="#">Comprar</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

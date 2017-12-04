@@ -17,6 +17,14 @@
     <body class="layout-dark grey lighten-3">
 
         {% include 'header.html.twig' %}
+        {% include 'horizontal_nav.html.twig' %}
+
+        <div id="toast-container">
+          <div class="toast" style="top: 0px; opacity: 1; max-width: 600px; display: none">
+            <span>Aca van las notificaciones</span>
+            <button class="btn-flat toast-action">Deshacer</button>
+          </div>
+        </div>
 
         {% block body %}{% endblock %}
 
