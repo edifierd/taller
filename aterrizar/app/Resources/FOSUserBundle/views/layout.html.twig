@@ -2,18 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% block stylesheets %}
+        {% stylesheets
+        '@uicss'
+        '@AppBundle/Resources/public/css/page-center.css'
+        filter='cssrewrite' output='css/compiled/app_login.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% endblock %}
     </head>
-    <body>
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
+    <body class="azul-gris">
 
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
@@ -29,5 +28,13 @@
             {% block fos_user_content %}
             {% endblock fos_user_content %}
         </div>
+
+        {% block javascripts %}
+        {% javascripts
+        '@uijs'
+        output='js/compiled/app_login.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>

@@ -21,6 +21,8 @@ framework:
     #serializer: { enable_annotations: true }
     default_locale: '%locale%'
     trusted_hosts: ~
+    templating:
+        engines: ['twig']
     session:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id: session.handler.native_file
@@ -35,6 +37,30 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+    assets:
+        uicss:
+            inputs:
+                - %kernel.root_dir%/../web/bundles/app/css/materialize.css
+                - %kernel.root_dir%/../web/bundles/app/css/style.css
+                - %kernel.root_dir%/../web/bundles/app/css/perfect-scrollbar.css
+                - %kernel.root_dir%/../web/bundles/app/css/custom.css
+        uijs:
+            inputs:
+                - %kernel.root_dir%/../web/bundles/app/js/jquery-3.2.1.min.js
+                - %kernel.root_dir%/../web/bundles/app/js/materialize.min.js
+                - %kernel.root_dir%/../web/bundles/app/js/prism.js
+                - %kernel.root_dir%/../web/bundles/app/js/perfect-scrollbar.min.js
+                - %kernel.root_dir%/../web/bundles/app/js/plugins.js
+                - %kernel.root_dir%/../web/bundles/app/js/page-item.js
+                - %kernel.root_dir%/../web/bundles/app/js/imagesloaded.pkgd.min.js
+                - %kernel.root_dir%/../web/bundles/app/js/masonry.pkgd.min.js
+                - %kernel.root_dir%/../web/bundles/app/js/custom-script.js
 
 # Doctrine Configuration
 doctrine:
