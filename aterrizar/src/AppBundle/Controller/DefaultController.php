@@ -27,8 +27,18 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'form_vuelo' => $form_vuelo->createView(),
         ]);
-        
+
     }
 
+    /**
+     * @Route("/carrito", name="carrito")
+     */
+    public function carrito(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('carrito/carrito.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
 
 }

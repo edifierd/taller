@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);*/
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -9304,7 +9304,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   /*shape-rendering: crispEdges;*/
 }
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);*/
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -15329,7 +15329,7 @@ li.home:before {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../../../fonts/material-design-icons/MaterialIcons-Regular.ttf") format("truetype"), url("../../../fonts/material-design-icons/MaterialIcons-Regular.woff2") format("woff2"), url("../../../fonts/material-design-icons/MaterialIcons-Regular.woff") format("woff"), url("../../../fonts/material-design-icons/MaterialIcons-Regular.eot");
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../../../bundles/app/fonts/material-design-icons/MaterialIcons-Regular.ttf") format("truetype"), url("../../../bundles/app/fonts/material-design-icons/MaterialIcons-Regular.woff2") format("woff2"), url("../../../bundles/app/fonts/material-design-icons/MaterialIcons-Regular.woff") format("woff"), url("../../../bundles/app/fonts/material-design-icons/MaterialIcons-Regular.eot");
 }
 
 .material-icons {
@@ -17898,10 +17898,10 @@ tr.group:hover {
     background-color: rgba(130,130,138,0.9); }
 
 /*================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 4.0
-	Author: PIXINVENT
-	Author URL: https://themeforest.net/user/pixinvent/portfolio
+Item Name: Materialize - Material Design Admin Template
+Version: 4.0
+Author: PIXINVENT
+Author URL: https://themeforest.net/user/pixinvent/portfolio
 ================================================================================
 
 NOTE:
@@ -17912,8 +17912,33 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   background-color: #37474F;
 }
 
+a {
+  color: #c2595e;
+}
+
+hr {
+  border:none;
+  border-top:1px dotted #555555;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+  width:95%;
+}
+
+div.hours span{
+  position: relative;
+  background-color: white;
+  top: -20px;
+  left: 40%;
+  padding: 0 15px;
+}
+
 .btn, .btn-large, .btn-floating, .notification-badge, span.badge.new{
   background-color: #c2595e;
+}
+
+.btn:focus, .btn-large:focus, .btn-floating:focus {
+    background-color: #a74e52;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -17963,6 +17988,18 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   background-color: #c2595e;
 }
 
+div.card-content span.badge {
+  padding: 5px 15px;
+  font-weight: 300;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #c2595e;
+  border-radius: 2px;
+  position: relative;
+  top: -35px;
+  height: auto;
+}
+
 .input-field .prefix.active {
   color: #c2595e;
 }
@@ -17976,7 +18013,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 .container{
-    width: 90% !important
+  width: 90% !important
 }
 
 nav .nav-wrapper {
@@ -17984,9 +18021,9 @@ nav .nav-wrapper {
 }
 
 .portada{
-   background: url(../../../bundles/app/img/cover2.jpg) no-repeat top;
-   background-size: cover;
-   min-height: 500px
+  background: url(../../../bundles/app/img/cover2.jpg) no-repeat top;
+  background-size: cover;
+  min-height: 500px
 }
 
 div.parallax > img,
@@ -18005,20 +18042,20 @@ header .brand-logo {
 }
 
 .picker__close, .picker__today, .picker__clear {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-    color: #c2595e;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  color: #c2595e;
 }
 
 .toast .toast-action {
-    color: #c2595e;
-    font-weight: 500;
-    margin-right: -25px;
-    margin-left: 3rem;
+  color: #c2595e;
+  font-weight: 500;
+  margin-right: -25px;
+  margin-left: 3rem;
 }
 
 .toast {
-    background-color: rgba(55, 71, 79, 0.8);
+  background-color: rgba(55, 71, 79, 0.8);
 }
 
 .prefix {
@@ -18078,10 +18115,10 @@ header .brand-logo {
 }
 
 #ul-horizontal-nav > li > a {
-  padding: 0 18px;
+  padding: 0 50px;
 }
 
 #horizontal-nav {
-  margin-top: 64px;
+  /*margin-top: 64px;*/
   z-index: -1;
 }
