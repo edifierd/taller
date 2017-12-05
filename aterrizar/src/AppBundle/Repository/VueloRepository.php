@@ -19,8 +19,8 @@ class VueloRepository extends \Doctrine\ORM\EntityRepository
       ->from('AppBundle:Vuelo', 'v')
       ->innerJoin('v.ubicacion_origen', 'o')
       ->innerJoin('v.ubicacion_destino', 'd')
-      ->where("v.fecha > :fecha_ini")
-      ->andWhere('v.fecha < :fecha_fin')
+      ->where("v.fecha >= :fecha_ini")
+      ->andWhere('v.fecha <= :fecha_fin')
       ->andWhere('o.id = :origen')
       ->andWhere('d.id = :destino')
       ->andWhere('v.disponible >= :cant');
