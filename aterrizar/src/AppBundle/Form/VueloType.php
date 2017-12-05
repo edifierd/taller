@@ -13,7 +13,7 @@ class VueloType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('id')->add('precio')->add('aerolinea')->add('disponible')->add('ubicacion_origen')->add('ubicacion_destino');
+        $builder->add('id')->add('precio')->add('aerolinea')->add('disponible')->add('fecha')->add('ubicacion_origen')->add('ubicacion_destino');
     }
     
     /**

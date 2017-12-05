@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DefaultController extends Controller
 {
@@ -17,9 +18,11 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
       $form_vuelo = $this->createFormBuilder()
-          ->add('origen', TextType::class, array("attr" => array("placeholder" => "Origen")))
-          ->add('destino', TextType::class, array("attr" => array("placeholder" => "Destino")))
-          ->add('fecha', TextType::class, array("attr" => array("placeholder" => "Fecha")))
+          ->setAction($this->generateUrl('busqueda_vuelos'))
+          ->add('origen', EntityType::class, array("class" => "AppBundle:Ubicacion",'placeholder'  => 'Seleccione un origen', "attr" => array("placeholder" => "Origen")))
+          ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
+          ->add('fecha', TextType::class, array("required" => true, "attr" => array("placeholder" => "Fecha", "class" => "datepicker")))
+          ->add('buscar', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
           ->getForm();
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [

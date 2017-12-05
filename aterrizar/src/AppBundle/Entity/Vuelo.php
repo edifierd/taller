@@ -55,6 +55,13 @@ class Vuelo extends Servicio
     private $ubicacion_destino;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="datetimetz")
+     */
+    private $fecha;
+
+    /**
      * Set precio
      *
      * @param float $precio
@@ -186,5 +193,29 @@ class Vuelo extends Servicio
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     *
+     * @return Vuelo
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
     }
 }

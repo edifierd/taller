@@ -15,14 +15,15 @@ class BusquedaController extends Controller
    */
   public function vuelosAction(Request $request)
   {
-      //if ($request->isMethod('POST')) {
+      if ($request->isMethod('POST')) {
 
-        $vuelos = VueloRepository::getVuelosByBusqueda("Buenos Aires", "Madrid", "10/12/2017", 1);
+        $form = $request->request->get("form");
+        $vuelos = VueloRepository::getVuelosByBusqueda($form["origen"], $form["destino"], $form["fecha"], 1);
         // replace this example code with whatever you need
         return $this->render('busqueda/busqueda_vuelos.html.twig', [
           'vuelos' => $vuelos,
         ]);
-      //}
+      }
   }
 
 }

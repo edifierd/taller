@@ -93,4 +93,9 @@ class Ubicacion
     {
         return $this->pais;
     }
+
+    public function __toString()
+    {
+        return $this->ciudad.", ".$this->pais;
+    }
 }

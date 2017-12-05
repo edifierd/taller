@@ -1,33 +1,8 @@
 <!-- BUSCAR VUELO -->
-<!-- <div class="card azul-gris z-depth-5">
-  <div class="card-content white-text">
-    <span class="card-title">Encontrá tu vuelo</span>
-    <form action="#">
-      <div class="input-field col s12">
-        <span class="material-icons prefix">flight_takeoff</span>
-        <input id="origen" class="validate" name="origen" type="text" placeholder="Origen">
-      </div>
-      <div class="input-field col s12">
-        <span class="material-icons prefix">flight_land</span>
-        <input id="destino" class="validate" name="destino" type="text" placeholder="Destino">
-      </div>
-      <label class="col s12 white-text">FECHA</label>
-      <div class="input-field col s12 m12">
-        <span class="material-icons prefix">date_range</span>
-        <input id="ida" name="ida" type="text" class="datepicker" placeholder="Fecha">
-      </div>
-      <div class="row" style="margin: 0;">
-        <div class="input-field col s12 m6">
-          <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
-        </div>
-      </div>
-    </form>
-  </div>
-</div> -->
 <div class="card azul-gris z-depth-5">
   <div class="card-content white-text">
     <span class="card-title">Encontrá tu vuelo</span>
-    <form action="#">
+    {{ form_start(form_vuelo) }}
       <div class="input-field col s12">
         <span class="material-icons prefix">flight_takeoff</span>
         {{ form_widget(form_vuelo.origen) }}
@@ -43,10 +18,11 @@
       </div>
       <div class="row" style="margin: 0;">
         <div class="input-field col s12 m6">
-          <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+          {{ form_widget(form_vuelo.buscar) }}
         </div>
       </div>
-    </form>
+    {{ form_rest(form_vuelo) }}
+    {{ form_end(form_vuelo) }}
   </div>
 </div>
 <!-- FIN BUSCAR VUELO -->
