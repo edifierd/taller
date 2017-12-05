@@ -3,59 +3,100 @@
 {% block body %}
 
 <div class="container">
-  <div class="section">
-    <h4 class="center-align light">Vuelos encontrados:</h4>
-    <div id="ecommerce-offer">
-      <!-- statr items list -->
-      <div id="item-posts" class="row">
-        <div class="item-sizer"></div>
-        {% for vuelo in vuelos %}
+  <div class="row">
 
-        <div class="item product">
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <a href="javascript:void(0)" class="btn-floating btn-large btn-price waves-effect waves-light">$25.609</a>
-              <a href="javascript:void(0)">
-                <img src="https://www.felicesvacaciones.es/img/2016/03/11/croacia.jpg" alt="item-img">
-              </a>
-            </div>
-            <ul class="card-action-buttons">
-              <li>
-                <a class="btn-floating waves-effect waves-light cyan">
-                  <i class="material-icons">add_shopping_cart</i>
-                </a>
-              </li>
-              <li>
-                <a class="btn-floating waves-effect waves-light orange accent-2">
-                  <i class="material-icons">add_alert</i>
-                </a>
-              </li>
-              <li>
-                <a class="btn-floating waves-effect waves-light deep-orange accent-2">
-                  <i class="material-icons activator">info_outline</i>
-                </a>
-              </li>
-            </ul>
-            <div class="card-content">
-              <div class="row">
-                <div class="col s12">
-                  <p class="card-title grey-text text-darken-4"><a href="javascript:void(0)" class="grey-text text-darken-4">Croacia | Vuelo directo + 15 Dias</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">
-                <i class="material-icons right">close</i> Croacia | Vuelo directo + 15 Dias</span>
-                <p>Here is some more information about this item that is only revealed once clicked on.</p>
-                <button class="btn waves-effect waves-light" type="button" name="button">Más información</button>
-              </div>
-            </div>
+    <!-- <div class="preloader-wrapper active">
+    <div class="spinner-layer spinner-red-only">
+    <div class="circle-clipper left">
+    <div class="circle"></div>
+  </div><div class="gap-patch">
+  <div class="circle"></div>
+</div><div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div> -->
+
+<div class="col s12 m3">
+  {% include 'busqueda/form_buscador.html.twig' %}
+</div>
+
+<div class="col s12 m7">
+
+  {% for vuelo in vuelos %}
+  <div class="col s12">
+    <div class="card darken-1">
+      <div class="card-content">
+        <span class="card-title">{{ vuelo.aerolinea }}</span>
+        <span class="badge">${{ vuelo.precio }}</span>
+        <p>
+          <i class="material-icons">airplanemode_active</i>
+          Fecha <b>{{ vuelo.fecha|date("m/d/Y") }}</b>
+        </p>
+        <div class="row" style="margin-top:18px; margin-bottom: 0">
+          <div class="col s2">
+            <p>
+              <span style="border: 1px solid #c2595e; padding: 10px;">{{ vuelo.ubicacionOrigen.ciudad }}</span>
+              <span>{{ "now"|date('H:i') }}</span>
+            </p>
           </div>
-          {% endfor %}
+          <div class="col s8 hours">
+            <hr>
+            <span class="center-align">11hs 25min</span>
+          </div>
+          <div class="col s2">
+            <p>
+              <span>{{ "now"|date('H:i') }}</span>
+              <span style="border: 1px solid #c2595e; padding: 10px;">{{ vuelo.ubicacionDestino.ciudad }}</span>
+            </p>
+          </div>
         </div>
+        <!-- <p>
+        <i class="material-icons">airplanemode_active</i>
+        VUELTA <b>{{ "now"|date("m/d/Y") }}</b>
+      </p>
 
-      </div>
+      <div class="row" style="margin-top:18px">
+      <div class="col s2">
+      <p>
+      <span style="border: 1px solid #c2595e; padding: 10px;">EZE</span>
+      <span>{{ "now"|date('H:i') }}</span>
+    </p>
+  </div>
+  <div class="col s8 sep">
+  <hr>
+</div>
+<div class="col s2">
+<p>
+<span style="border: 1px solid #c2595e; padding: 10px;">SJO</span>
+<span>{{ "now"|date('H:i') }}</span>
+</p>
+</div>
+</div> -->
+
+</div>
+<div class="card-action">
+  <a href="#">Comprar</a>
+</div>
+</div>
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="col s12 m2">
+
+  <div class="card azul-gris border-radius-3">
+    <div class="card-content center">
+      <img src="https://ar.staticontent.com/shop/flights/css-versioned/9.14.0/despegar/core-flights/img/alerts-icon.svg" class="width-40 border-round z-depth-5">
+      <h5 class="white-text lighten-4">Recibe alertas de vuelos</h5>
+      <!-- <p class="white-text lighten-4">Por menos de $ 24.282</p> -->
     </div>
   </div>
+
+</div>
+
+</div>
+</div>
 {% endblock %}

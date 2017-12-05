@@ -6,7 +6,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -15,8 +14,8 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
-    {
+    public function indexAction(Request $request){
+
       $form_vuelo = $this->createFormBuilder()
           ->setAction($this->generateUrl('busqueda_vuelos'))
           ->add('origen', EntityType::class, array("class" => "AppBundle:Ubicacion",'placeholder'  => 'Seleccione un origen', "attr" => array("placeholder" => "Origen")))
@@ -28,17 +27,7 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', [
             'form_vuelo' => $form_vuelo->createView(),
         ]);
-    }
 
-    /**
-     * @Route("/buscar", name="buscar")
-     */
-    public function buscador(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/buscador.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
     }
 
     /**
@@ -51,4 +40,5 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
 }
