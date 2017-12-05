@@ -1,0 +1,99 @@
+<!-- BUSCAR VUELO -->
+<div class="card azul-gris z-depth-5">
+  <div class="card-content white-text">
+    <span class="card-title">Encontrá tu vuelo</span>
+    <form action="#">
+      <div class="row">
+        <div id="opciones" class="col s12">
+          <input name="vuelo" type="radio" id="idavuelta" checked />
+          <label class="white-text" for="idavuelta">Ida y vuelta</label>
+          <input name="vuelo" type="radio" id="soloida" />
+          <label class="white-text" for="soloida">Solo ida</label>
+        </div>
+      </div>
+      <div class="input-field col s12">
+        <span class="material-icons prefix">flight_takeoff</span>
+        <input id="origen" class="validate" name="origen" type="text" placeholder="Origen">
+      </div>
+      <div class="input-field col s12">
+        <span class="material-icons prefix">flight_land</span>
+        <input id="destino" class="validate" name="destino" type="text" placeholder="Destino">
+      </div>
+      <label class="col s12 white-text">FECHAS</label>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">date_range</span>
+        <input id="ida" name="ida" type="text" class="datepicker" placeholder="Entrada">
+      </div>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">date_range</span>
+        <input id="regreso" name="regreso" type="text" class="datepicker" placeholder="Salida">
+      </div>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">person</span>
+        <input id="cant_vuelo" type="number" class="validate" name="cant_vuelo" placeholder="Cant. personas">
+      </div>
+      <div class="input-field col s12 m6 center" style="padding-top: 10px">
+        <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- FIN BUSCAR VUELO -->
+
+<!-- BUSCAR HOTEL -->
+<div class="card azul-gris z-depth-5" hidden>
+  <div class="card-content white-text">
+    <span class="card-title">Buscá tu hotel</span>
+    <form action="#">
+      <div class="input-field col s12">
+        <span class="material-icons prefix">room</span>
+        <input id="ciudad_hotel" class="validate" name="ciudad_hotel" type="text" placeholder="Destino">
+      </div>
+      <label class="col s12 white-text">FECHAS</label>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">date_range</span>
+        <input id="checkin" name="checkin" type="text" class="datepicker" placeholder="Entrada">
+      </div>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">date_range</span>
+        <input id="checkout" name="checkout" type="text" class="datepicker" placeholder="Salida">
+      </div>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">person</span>
+        <input id="cant_hotel" type="number" class="validate" name="cant_hotel" placeholder="Cant. personas">
+      </div>
+      <div class="input-field col s12 m6 center" style="padding-top: 10px">
+        <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- FIN BUSCAR HOTEL -->
+
+<!-- BUSCAR AUTO -->
+<div class="card azul-gris z-depth-5" hidden>
+  <div class="card-content white-text">
+    <span class="card-title">Alquilá tu auto</span>
+    <form action="#">
+      <div class="input-field col s12">
+        <span class="material-icons prefix">room</span>
+        <input id="ciudad_auto" class="validate" name="ciudad_auto" type="text" placeholder="Ciudad">
+      </div>
+      <label class="col s12 white-text">FECHAS</label>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">date_range</span>
+        <input id="alquiler" name="alquiler" type="text" class="datepicker" placeholder="Fecha de alquiler">
+      </div>
+      <div class="input-field col s12 m6">
+        <span class="material-icons prefix">date_range</span>
+        <input id="devolucion" name="devolucion" type="text" class="datepicker" placeholder="Fecha de devolución">
+      </div>
+      <div class="row center">
+        <div class="input-field col s12" style="padding-top: 10px">
+          <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- FIN BUSCAR AUTO -->
