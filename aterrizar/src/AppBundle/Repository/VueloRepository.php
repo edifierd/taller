@@ -10,4 +10,9 @@ namespace AppBundle\Repository;
  */
 class VueloRepository extends \Doctrine\ORM\EntityRepository
 {
+
+  public function getVuelosByBusqueda($origen, $destino, $fecha, $cant_personas) {
+    return array(2);
+  }
+
 }
