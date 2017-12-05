@@ -9,46 +9,52 @@
     <div class="col s12 m8">
       <!-- ITEMS DEL CARRITO -->
 
-      <div class="col s12">
-        <div class="card hoverable darken-1">
-          <div class="card-content">
-            <span class="card-title">LATAM Airlines</span>
-            <span class="badge">$4.200</span>
-            <div class="row no-margin">
-              <div class="col s10 no-margin">
-                <div class="col s6">
-                  <span class="left">
-                    <i class="material-icons left">airplanemode_active</i>
-                    SALIDA <b>{{ "now"|date("m/d/Y") }}</b>- {{ "now"|date("H:m") }} HS
-                  </span>
+      {% for reserva in servicios_reserva %}
+          {% if reserva.tipo == "Vuelo" %}
+          <div class="col s12">
+            <div class="card hoverable darken-1">
+              <div class="card-content">
+                <span class="card-title">{{ reserva.servicio.aerolinea }}</span>
+                <span class="badge">${{ reserva.servicio.precio }}</span>
+                <div class="row no-margin">
+                  <div class="col s10 no-margin">
+                    <div class="col s6">
+                      <span class="left">
+                        <i class="material-icons left">airplanemode_active</i>
+                        SALIDA <b>{{ reserva.servicio.fecha|date("m/d/Y") }}</b>- {{ reserva.servicio.fecha|date("H:m") }} HS
+                      </span>
+                    </div>
+                    <div class="col s6">
+                      <span class="right">
+                        <i class="material-icons left">airplanemode_active</i>
+                        LLEGADA <b>{{ reserva.servicio.fechaLlegada|date("m/d/Y") }}</b>- {{ reserva.servicio.fechaLlegada|date("H:m") }} HS
+                      </span>
+                    </div>
+                  </div>
+
                 </div>
-                <div class="col s6">
-                  <span class="right">
-                    <i class="material-icons left">airplanemode_active</i>
-                    LLEGADA <b>{{ "now"|date("m/d/Y") }}</b>- {{ "now"|date("H:m") }} HS
-                  </span>
+                <div class="row no-margin">
+                  <div class="col s10">
+                    <div class="col s4">
+                      <span class="left" style="border: 1px solid #c2595e; padding: 10px;">{{ reserva.servicio.ubicacionOrigen.ciudad }}</span>
+                    </div>
+                    <div class="col s4 hours">
+                      <hr>
+                      <span class="center-align">11hs 25min</span>
+                    </div>
+                    <div class="col s4">
+                      <span class="right" style="border: 1px solid #c2595e; padding: 10px;">{{ reserva.servicio.ubicacionDestino.ciudad }}</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
-            </div>
-            <div class="row no-margin">
-              <div class="col s10">
-                <div class="col s4">
-                  <span class="left" style="border: 1px solid #c2595e; padding: 10px;">Buenos Aires</span>
-                </div>
-                <div class="col s4 hours">
-                  <hr>
-                  <span class="center-align">11hs 25min</span>
-                </div>
-                <div class="col s4">
-                  <span class="right" style="border: 1px solid #c2595e; padding: 10px;">San José</span>
-                </div>
-              </div>
-
             </div>
           </div>
-        </div>
-      </div>
+          {% endif %}
+      {% endfor %}
+
+
 
       <div class="col s12">
         <div class="card hoverable darken-1">

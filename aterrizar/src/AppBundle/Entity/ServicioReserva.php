@@ -164,4 +164,10 @@ class ServicioReserva
     {
         return $this->servicio;
     }
+
+    public function getTipo()
+    {
+      $path = explode('\\', get_class($this->servicio));
+      return array_pop($path);
+    }
 }

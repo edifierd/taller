@@ -28,7 +28,7 @@ class CarritoController extends Controller
       $em->flush();
       // replace this example code with whatever you need
       return $this->render('carrito/carrito.html.twig', [
-          'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+          'servicios_reserva' => $this->getUser()->getCarrito()->getServiciosReserva(),
       ]);
   }
 
