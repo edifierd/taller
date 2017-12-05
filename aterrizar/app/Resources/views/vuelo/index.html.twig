@@ -6,22 +6,24 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Precio</th>
                 <th>Aerolinea</th>
                 <th>Disponible</th>
                 <th>Fecha</th>
+                <th>Id</th>
+                <th>Imagen</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for vuelo in vuelos %}
             <tr>
-                <td><a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">{{ vuelo.id }}</a></td>
-                <td>{{ vuelo.precio }}</td>
+                <td><a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">{{ vuelo.precio }}</a></td>
                 <td>{{ vuelo.aerolinea }}</td>
                 <td>{{ vuelo.disponible }}</td>
                 <td>{{ vuelo.fecha }}</td>
+                <td>{{ vuelo.id }}</td>
+                <td>{{ vuelo.imagen }}</td>
                 <td>
                     <ul>
                         <li>

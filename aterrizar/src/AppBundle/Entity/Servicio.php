@@ -22,20 +22,20 @@ abstract class Servicio
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      *
      * @ORM\ManyToMany(targetEntity="ServicioReserva", inversedBy="servicios")
      */
-    private $servicio_reservas;
+    protected $servicio_reservas;
 
     /**
      * @var string
      *
      * @ORM\Column(name="imagen", type="string", length=255)
      */
-    private $imagen;
+    protected $imagen;
 
 
     /**

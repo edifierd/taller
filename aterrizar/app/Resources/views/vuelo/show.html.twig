@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ vuelo.id }}</td>
-            </tr>
-            <tr>
                 <th>Precio</th>
                 <td>{{ vuelo.precio }}</td>
             </tr>
@@ -23,7 +19,15 @@
             </tr>
             <tr>
                 <th>Fecha</th>
-                <td>{{ vuelo.fecha }}</td>
+                <td>{{ vuelo.fecha|date('Y-m-d H:m:s') }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ vuelo.id }}</td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <td>{{ vuelo.imagen }}</td>
             </tr>
         </tbody>
     </table>

@@ -12,7 +12,27 @@ class VueloRepository extends \Doctrine\ORM\EntityRepository
 {
 
   public function getVuelosByBusqueda($origen, $destino, $fecha, $cant_personas) {
-    return array(2);
+    $em = $this->getEntityManager();
+    $qb = $em->createQueryBuilder();
+
+    $qb->select('v')
+      ->from('AppBundle:Vuelo', 'v')
+      ->innerJoin('v.ubicacion_origen', 'o')
+      ->innerJoin('v.ubicacion_destino', 'd')
+      ->where("v.fecha > :fecha_ini")
+      ->andWhere('v.fecha < :fecha_fin')
+      ->andWhere('o.id = :origen')
+      ->andWhere('d.id = :destino')
+      ->andWhere('v.disponible >= :cant');
+
+    $fecha = new \DateTime($fecha);
+    $qb->setParameter('fecha_ini', $fecha->format('Y-m-d 00:00:00'));
+    $qb->setParameter('fecha_fin', $fecha->format('Y-m-d 23:59:59'));
+    $qb->setParameter('origen', $origen);
+    $qb->setParameter('destino', $destino);
+    $qb->setParameter('cant', $cant_personas);
+
+    return $qb->getQuery()->getResult();
   }
 
 }
