@@ -9,8 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="servicio")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServicioRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"vuelo" = "Vuelo", "hotel" = "Hotel", "auto" = "Auto"})
  */
-class Servicio
+abstract class Servicio
 {
     /**
      * @var int

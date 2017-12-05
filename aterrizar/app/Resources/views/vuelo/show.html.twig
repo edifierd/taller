@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Vuelo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vuelo.id }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ vuelo.precio }}</td>
+            </tr>
+            <tr>
+                <th>Aerolinea</th>
+                <td>{{ vuelo.aerolinea }}</td>
+            </tr>
+            <tr>
+                <th>Disponible</th>
+                <td>{{ vuelo.disponible }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vuelo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('vuelo_edit', { 'id': vuelo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
