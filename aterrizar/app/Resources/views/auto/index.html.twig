@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Autos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Precio</th>
+                <th>Empresa</th>
+                <th>Modelo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auto in autos %}
+            <tr>
+                <td><a href="{{ path('auto_show', { 'id': auto.id }) }}">{{ auto.id }}</a></td>
+                <td>{{ auto.precio }}</td>
+                <td>{{ auto.empresa }}</td>
+                <td>{{ auto.modelo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('auto_show', { 'id': auto.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('auto_edit', { 'id': auto.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('auto_new') }}">Create a new auto</a>
+        </li>
+    </ul>
+{% endblock %}

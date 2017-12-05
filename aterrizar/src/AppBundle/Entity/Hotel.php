@@ -14,6 +14,14 @@ class Hotel extends Servicio
 {
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     */
+    private $id;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="precio", type="float")
@@ -135,5 +143,19 @@ class Hotel extends Servicio
     public function getUbicacion()
     {
         return $this->ubicacion;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Hotel
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }

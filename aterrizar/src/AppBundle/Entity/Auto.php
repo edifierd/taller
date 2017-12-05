@@ -14,6 +14,14 @@ class Auto extends Servicio
 {
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     */
+    private $id;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="precio", type="float")
@@ -135,5 +143,19 @@ class Auto extends Servicio
     public function getUbicacion()
     {
         return $this->ubicacion;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Auto
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }
