@@ -1,36 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ubicacion</h1>
+<div class="container">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ ubicacion.id }}</td>
-            </tr>
-            <tr>
-                <th>Ciudad</th>
-                <td>{{ ubicacion.ciudad }}</td>
-            </tr>
-            <tr>
-                <th>Pais</th>
-                <td>{{ ubicacion.pais }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <h1 class="light">Ubicacion</h1>
 
-    <ul>
-        <li>
-            <a href="{{ path('ubicacion_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('ubicacion_edit', { 'id': ubicacion.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+  <table>
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ ubicacion.id }}</td>
+      </tr>
+      <tr>
+        <th>Ciudad</th>
+        <td>{{ ubicacion.ciudad }}</td>
+      </tr>
+      <tr>
+        <th>Pais</th>
+        <td>{{ ubicacion.pais }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ul>
+    <li>
+      <a href="{{ path('ubicacion_index') }}">Volver a la lista</a>
+    </li>
+    <li>
+      <a href="{{ path('ubicacion_edit', { 'id': ubicacion.id }) }}">Editar</a>
+    </li>
+    <li>
+      {{ form_start(delete_form) }}
+      <input class="btn" type="submit" value="Eliminar">
+      {{ form_end(delete_form) }}
+    </li>
+  </ul>
+</div>
 {% endblock %}

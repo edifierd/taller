@@ -1,43 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Hotels list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Precio</th>
-                <th>Nombre</th>
-                <th>Disponibilidad</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for hotel in hotels %}
-            <tr>
-                <td><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ hotel.id }}</a></td>
-                <td>{{ hotel.precio }}</td>
-                <td>{{ hotel.nombre }}</td>
-                <td>{{ hotel.disponibilidad }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('hotel_show', { 'id': hotel.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="container">
+  <h1 class="light">Listado de Hoteles</h1>
 
-    <ul>
-        <li>
-            <a href="{{ path('hotel_new') }}">Create a new hotel</a>
-        </li>
-    </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Precio</th>
+        <th>Nombre</th>
+        <th>Disponibilidad</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for hotel in hotels %}
+      <tr>
+        <td><a href="{{ path('hotel_show', { 'id': hotel.id }) }}">{{ hotel.id }}</a></td>
+        <td>{{ hotel.precio }}</td>
+        <td>{{ hotel.nombre }}</td>
+        <td>{{ hotel.disponibilidad }}</td>
+        <td>
+          <ul>
+            <li>
+              <a href="{{ path('hotel_show', { 'id': hotel.id }) }}">Ver</a>
+            </li>
+            <li>
+              <a href="{{ path('hotel_edit', { 'id': hotel.id }) }}">Editar</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <ul>
+    <li>
+      <a href="{{ path('hotel_new') }}">Agregar Hotel</a>
+    </li>
+  </ul>
+
+</div>
 {% endblock %}
