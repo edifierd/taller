@@ -17,7 +17,7 @@
         {{ form_widget(form_vuelo.fecha) }}
       </div>
       <div class="row center no-margin">
-        <div class="input-field col s12 m6" style="padding-top: 10px;">
+        <div class="input-field col s12" style="padding-top: 10px;">
           {{ form_widget(form_vuelo.buscar) }}
         </div>
       </div>
@@ -45,12 +45,8 @@
         <span class="material-icons prefix">date_range</span>
         <input id="checkout" name="checkout" type="text" class="datepicker" placeholder="Salida">
       </div>
-      <div class="row no-margin">
-        <div class="input-field col s12 m6">
-          <span class="material-icons prefix">person</span>
-          <input id="cant_hotel" type="number" class="validate" name="cant_hotel" placeholder="Cant. personas">
-        </div>
-        <div class="input-field col s12 m6 center" style="padding-top: 10px;">
+      <div class="row no-margin center">
+        <div class="input-field col s12" style="padding-top: 10px;">
           <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
         </div>
       </div>
