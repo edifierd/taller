@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Vuelos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Precio</th>
+                <th>Aerolinea</th>
+                <th>Disponible</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vuelo in vuelos %}
+            <tr>
+                <td><a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">{{ vuelo.id }}</a></td>
+                <td>{{ vuelo.precio }}</td>
+                <td>{{ vuelo.aerolinea }}</td>
+                <td>{{ vuelo.disponible }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('vuelo_edit', { 'id': vuelo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vuelo_new') }}">Create a new vuelo</a>
+        </li>
+    </ul>
+{% endblock %}

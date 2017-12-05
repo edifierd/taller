@@ -14,6 +14,14 @@ class Vuelo extends Servicio
 {
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     */
+    private $id;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="precio", type="float")
@@ -164,5 +172,19 @@ class Vuelo extends Servicio
     public function getUbicacionDestino()
     {
         return $this->ubicacion_destino;
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Vuelo
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }
