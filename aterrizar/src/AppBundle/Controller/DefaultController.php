@@ -41,4 +41,15 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/pago", name="pago")
+     */
+    public function pago(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('carrito/pago.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
 }
