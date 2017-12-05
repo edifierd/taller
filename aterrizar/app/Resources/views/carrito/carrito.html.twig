@@ -6,38 +6,45 @@
   <div class="row">
     <h1 class="light center-align">Este es tu carrito</h1>
 
-    <div class="col s12 m7">
+    <div class="col s12 m8">
       <!-- ITEMS DEL CARRITO -->
+
       <div class="col s12">
         <div class="card hoverable darken-1">
           <div class="card-content">
             <span class="card-title">LATAM Airlines</span>
-            <span class="badge">$16.000</span>
-            <div class="row" style="margin-top:18px; margin-bottom: 0">
-              <div class="col s4">
-
+            <span class="badge">$4.200</span>
+            <div class="row no-margin">
+              <div class="col s10 no-margin">
+                <div class="col s6">
                   <span class="left">
                     <i class="material-icons left">airplanemode_active</i>
-                    IDA <b>{{ "now"|date("m/d/Y") }}</b>
+                    SALIDA <b>{{ "now"|date("m/d/Y") }}</b>- {{ "now"|date("H:m") }} HS
                   </span>
-                  <br>
+                </div>
+                <div class="col s6">
+                  <span class="right">
+                    <i class="material-icons left">airplanemode_active</i>
+                    LLEGADA <b>{{ "now"|date("m/d/Y") }}</b>- {{ "now"|date("H:m") }} HS
+                  </span>
+                </div>
+              </div>
 
+            </div>
+            <div class="row no-margin">
+              <div class="col s10">
+                <div class="col s4">
                   <span class="left" style="border: 1px solid #c2595e; padding: 10px;">Buenos Aires</span>
-
+                </div>
+                <div class="col s4 hours">
+                  <hr>
+                  <span class="center-align">11hs 25min</span>
+                </div>
+                <div class="col s4">
+                  <span class="right" style="border: 1px solid #c2595e; padding: 10px;">San José</span>
+                </div>
               </div>
-              <div class="col s4 hours">
-                <hr>
-                <span class="center-align">11hs 25min</span>
-              </div>
-              <div class="col s4">
 
-                  <p class="right">
-                    <i class="material-icons">airplanemode_active</i>
-                    LLEGADA <b>{{ "now"|date("m/d/Y") }}</b>
-                  </p>
-                  <span style="border: 1px solid #c2595e; padding: 10px;">SJO</span>
-
-              </div>
             </div>
           </div>
         </div>
@@ -107,7 +114,7 @@
 
     </div>
 
-    <div class="col s12 m5">
+    <div class="col s12 m4">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title center-align">Detalle de la compra</span>
