@@ -363,11 +363,30 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT I
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
   selectYears: 15, // Creates a dropdown of 15 years to control year,
-  today: 'Today',
-  clear: 'Clear',
-  close: 'Ok',
+  today: 'Hoy',
+  clear: 'Limpiar',
+  close: 'Seleccionar',
   closeOnSelect: false // Close upon selecting a date,
 });
+
+function checkDate() {
+  if ($('.datepicker').val() == '') {
+    $('.datepicker').addClass('invalid');
+    return false;
+  } else {
+    $('.datepicker').removeClass('invalid');
+    return true;
+  }
+}
+
+$('form').submit(function() {
+  return checkDate();
+});
+
+$('.datepicker').change(function() {
+  checkDate();
+});
+
 
 $("#opciones input[type='radio']").click(function(){
     if (this.id == "soloida") {
@@ -376,4 +395,38 @@ $("#opciones input[type='radio']").click(function(){
       $('#regreso').prop('disabled', false);
     }
     $('#origen').focus();
+});
+
+$( "a" ).click(function() {
+  switch (this.id) {
+    case 'btn_vuelo':
+    $('#buscar_hotel').hide();
+    $('#buscar_auto').hide();
+    $('#buscar_vuelo').show();
+    $('#btn_hotel').parent('li').removeClass('active');
+    $('#btn_auto').parent('li').removeClass('active');
+    $('#btn_vuelo').parent('li').addClass('active');
+    break;
+
+    case 'btn_hotel':
+    $('#buscar_vuelo').hide();
+    $('#buscar_auto').hide();
+    $('#buscar_hotel').show();
+    $('#btn_auto').parent('li').removeClass('active');
+    $('#btn_vuelo').parent('li').removeClass('active');
+    $('#btn_hotel').parent('li').addClass('active');
+    break;
+
+    case 'btn_auto':
+    $('#buscar_hotel').hide();
+    $('#buscar_vuelo').hide();
+    $('#buscar_auto').show();
+    $('#btn_hotel').parent('li').removeClass('active');
+    $('#btn_vuelo').parent('li').removeClass('active');
+    $('#btn_auto').parent('li').addClass('active');
+    break;
+
+    default:
+
+  }
 });

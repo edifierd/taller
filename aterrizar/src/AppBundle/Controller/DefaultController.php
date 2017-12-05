@@ -40,4 +40,15 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/carrito", name="carrito")
+     */
+    public function carrito(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('carrito/carrito.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
 }
