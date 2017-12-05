@@ -1,8 +1,8 @@
 /*================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 4.0
-	Author: PIXINVENT
-	Author URL: https://themeforest.net/user/pixinvent/portfolio
+Item Name: Materialize - Material Design Admin Template
+Version: 4.0
+Author: PIXINVENT
+Author URL: https://themeforest.net/user/pixinvent/portfolio
 ================================================================================
 
 NOTE:
@@ -11,6 +11,14 @@ PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER 
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 .azul-gris{
   background-color: #37474F;
+}
+
+div.hours span{
+  position: relative;
+  background-color: white;
+  top: -20px;
+  left: 40%;
+  padding: 0 15px;
 }
 
 .btn, .btn-large, .btn-floating, .notification-badge, span.badge.new{
@@ -64,6 +72,18 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   background-color: #c2595e;
 }
 
+div.card-content span.badge {
+  padding: 5px 15px;
+  font-weight: 300;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #c2595e;
+  border-radius: 2px;
+  position: relative;
+  top: -35px;
+  height: auto;
+}
+
 .input-field .prefix.active {
   color: #c2595e;
 }
@@ -77,7 +97,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 .container{
-    width: 90% !important
+  width: 90% !important
 }
 
 nav .nav-wrapper {
@@ -85,9 +105,9 @@ nav .nav-wrapper {
 }
 
 .portada{
-   background: url(../img/cover2.jpg) no-repeat top;
-   background-size: cover;
-   min-height: 500px
+  background: url(../img/cover2.jpg) no-repeat top;
+  background-size: cover;
+  min-height: 500px
 }
 
 div.parallax > img,
@@ -106,20 +126,20 @@ header .brand-logo {
 }
 
 .picker__close, .picker__today, .picker__clear {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-    color: #c2595e;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  color: #c2595e;
 }
 
 .toast .toast-action {
-    color: #c2595e;
-    font-weight: 500;
-    margin-right: -25px;
-    margin-left: 3rem;
+  color: #c2595e;
+  font-weight: 500;
+  margin-right: -25px;
+  margin-left: 3rem;
 }
 
 .toast {
-    background-color: rgba(55, 71, 79, 0.8);
+  background-color: rgba(55, 71, 79, 0.8);
 }
 
 .prefix {
@@ -133,24 +153,6 @@ header .brand-logo {
 .sombra{
   text-shadow: 3px 3px 4px #202020;
   margin-top: 30px;
-}
-
-.divider {
-    border-color: #000;
-    border-style: solid;
-    border-width: 0 0 1px;
-    height: 10px;
-    line-height: 20px;
-    text-align:center;
-    overflow: visable;
-}
-
-.divider span {
-    background-color: #FFF;
-    display: inline-block;
-    padding: 0 10px;
-    min-height: 20px;
-    min-width: 10%;
 }
 
 @media (orientation: portrait) {
