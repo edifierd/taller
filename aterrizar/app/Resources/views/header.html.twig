@@ -16,7 +16,7 @@
         <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Busca un destino">
       </div> -->
       <ul class="right hide-on-med-and-down">
-        {% if app.user %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <li>
           <a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown">
             <i class="material-icons">shopping_cart<small class="notification-badge">3</small></i>
@@ -48,13 +48,13 @@
             </li>
             <li class="divider"></li>
             <li>
-              <a href="{{ path('fos_user_security_login') }}" class="grey-text text-darken-1"><i class="material-icons">keyboard_tab</i> Cerrar Sesión</a>
+              <a href="{{ path('fos_user_security_logout') }}" class="grey-text text-darken-1"><i class="material-icons">keyboard_tab</i> Cerrar Sesión</a>
             </li>
           </ul>
         </li>
-        {% else %}
+        {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
         <li>
-          <a href="{{path('fos_user_registration_register')}}" class="waves-effect waves-block waves-light"><i class="material-icons small left">person</i>Iniciar Sesion</a>
+          <a href="{{ path('fos_user_security_login') }}" class="waves-effect waves-block waves-light"><i class="material-icons small left">person</i>Iniciar Sesion</a>
         </li>
         {% endif %}
       </ul>
