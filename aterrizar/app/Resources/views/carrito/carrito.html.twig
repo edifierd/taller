@@ -13,26 +13,30 @@
           <div class="card-content">
             <span class="card-title">LATAM Airlines</span>
             <span class="badge">$16.000</span>
-            <p>
-              <i class="material-icons">airplanemode_active</i>
-              IDA <b>{{ "now"|date("m/d/Y") }}</b>
-            </p>
             <div class="row" style="margin-top:18px; margin-bottom: 0">
-              <div class="col s2">
-                <p>
-                  <span style="border: 1px solid #c2595e; padding: 10px;">EZE</span>
-                  <span>{{ "now"|date('H:i') }}</span>
-                </p>
+              <div class="col s4">
+
+                  <span class="left">
+                    <i class="material-icons left">airplanemode_active</i>
+                    IDA <b>{{ "now"|date("m/d/Y") }}</b>
+                  </span>
+                  <br>
+
+                  <span class="left" style="border: 1px solid #c2595e; padding: 10px;">Buenos Aires</span>
+
               </div>
-              <div class="col s8 hours">
+              <div class="col s4 hours">
                 <hr>
                 <span class="center-align">11hs 25min</span>
               </div>
-              <div class="col s2">
-                <p>
-                  <span>{{ "now"|date('H:i') }}</span>
+              <div class="col s4">
+
+                  <p class="right">
+                    <i class="material-icons">airplanemode_active</i>
+                    LLEGADA <b>{{ "now"|date("m/d/Y") }}</b>
+                  </p>
                   <span style="border: 1px solid #c2595e; padding: 10px;">SJO</span>
-                </p>
+
               </div>
             </div>
           </div>
