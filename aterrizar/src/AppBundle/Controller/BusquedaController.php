@@ -18,7 +18,8 @@ class BusquedaController extends Controller
       if ($request->isMethod('POST')) {
 
         $form = $request->request->get("form");
-        $vuelos = VueloRepository::getVuelosByBusqueda($form["origen"], $form["destino"], $form["fecha"], 1);
+        $em = $this->getDoctrine()->getManager();
+        $vuelos = $em->getRepository("AppBundle:Vuelo")->getVuelosByBusqueda($form["origen"], $form["destino"], $form["fecha"], 1);
         // replace this example code with whatever you need
         return $this->render('busqueda/busqueda_vuelos.html.twig', [
           'vuelos' => $vuelos,

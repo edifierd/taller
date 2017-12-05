@@ -13,13 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Vuelo extends Servicio
 {
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     */
-    private $id;
+    // /**
+    //  * @var int
+    //  *
+    //  * @ORM\Column(name="id", type="integer")
+    //  * @ORM\Id
+    //  */
+    // private $id;
 
     /**
      * @var float
@@ -218,4 +218,5 @@ class Vuelo extends Servicio
     {
         return $this->fecha;
     }
+
 }

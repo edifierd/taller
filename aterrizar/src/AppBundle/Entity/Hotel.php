@@ -13,13 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Hotel extends Servicio
 {
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     */
-    private $id;
+    // /**
+    //  * @var int
+    //  *
+    //  * @ORM\Column(name="id", type="integer")
+    //  * @ORM\Id
+    //  */
+    // private $id;
 
     /**
      * @var float
