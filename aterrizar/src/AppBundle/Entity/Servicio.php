@@ -27,6 +27,13 @@ class Servicio
      */
     private $servicio_reservas;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagen", type="string", length=255)
+     */
+    private $imagen;
+
 
     /**
      * Get id
@@ -111,5 +118,29 @@ class Servicio
     public function getServicioReservas()
     {
         return $this->servicio_reservas;
+    }
+
+    /**
+     * Set imagen
+     *
+     * @param string $imagen
+     *
+     * @return Servicio
+     */
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen
+     *
+     * @return string
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
     }
 }
