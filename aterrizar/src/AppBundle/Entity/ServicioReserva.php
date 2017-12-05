@@ -37,13 +37,10 @@ class ServicioReserva
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Servicio")
-     * @ORM\JoinTable(name="reservas_servicios",
-     *      joinColumns={@ORM\JoinColumn(name="reservas_servicios_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="servicio_id", referencedColumnName="id")}
-     *      )
+     * @ORM\ManyToOne(targetEntity="Servicio", inversedBy="servicio_reservas", cascade={"persist"})
+     * @ORM\JoinColumn(name="servicio_reserva_id", referencedColumnName="id")
      */
-    private $servicios;
+    private $servicio;
 
     /**
      * Get id
@@ -142,5 +139,29 @@ class ServicioReserva
     public function getServicios()
     {
         return $this->servicios;
+    }
+
+    /**
+     * Set servicio
+     *
+     * @param \AppBundle\Entity\Servicio $servicio
+     *
+     * @return ServicioReserva
+     */
+    public function setServicio(\AppBundle\Entity\Servicio $servicio = null)
+    {
+        $this->servicio = $servicio;
+
+        return $this;
+    }
+
+    /**
+     * Get servicio
+     *
+     * @return \AppBundle\Entity\Servicio
+     */
+    public function getServicio()
+    {
+        return $this->servicio;
     }
 }

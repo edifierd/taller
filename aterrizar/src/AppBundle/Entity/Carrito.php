@@ -23,14 +23,13 @@ class Carrito
 
     /**
      *
-     * @ORM\OneToOne(targetEntity="User", inversedBy="carrito")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="User", mappedBy="carrito", cascade={"persist"})
      */
     private $user;
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="ServicioReserva")
+     * @ORM\ManyToMany(targetEntity="ServicioReserva", cascade={"persist"})
      * @ORM\JoinTable(name="carrito_servicios_reserva",
      *      joinColumns={@ORM\JoinColumn(name="carrito_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="servicio_reserva_id", referencedColumnName="id")}
@@ -111,9 +110,9 @@ class Carrito
      *
      * @return Carrito
      */
-    public function addServicio(\AppBundle\Entity\Servicio $servicio)
+    public function addServicio(\AppBundle\Entity\ServicioReserva $servicio_reserva)
     {
-        $this->servicios[] = $servicio;
+        $this->servicios_reserva[] = $servicio_reserva;
 
         return $this;
     }
