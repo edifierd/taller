@@ -24,7 +24,7 @@
     </form>
   </div>
 </div> -->
-<div class="card azul-gris z-depth-5">
+<div id="buscar_vuelo" class="card azul-gris z-depth-5">
   <div class="card-content white-text">
     <span class="card-title">Encontrá tu vuelo</span>
     <form action="#">
@@ -41,8 +41,8 @@
         <span class="material-icons prefix">date_range</span>
         {{ form_widget(form_vuelo.fecha) }}
       </div>
-      <div class="row" style="margin: 0;">
-        <div class="input-field col s12 m6">
+      <div class="row center no-margin">
+        <div class="input-field col s12" style="padding-top: 10px;">
           <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
         </div>
       </div>
@@ -52,7 +52,7 @@
 <!-- FIN BUSCAR VUELO -->
 
 <!-- BUSCAR HOTEL -->
-<div class="card azul-gris z-depth-5" hidden>
+<div id="buscar_hotel" class="card azul-gris z-depth-5" hidden>
   <div class="card-content white-text">
     <span class="card-title">Buscá tu hotel</span>
     <form action="#">
@@ -69,12 +69,14 @@
         <span class="material-icons prefix">date_range</span>
         <input id="checkout" name="checkout" type="text" class="datepicker" placeholder="Salida">
       </div>
-      <div class="input-field col s12 m6">
-        <span class="material-icons prefix">person</span>
-        <input id="cant_hotel" type="number" class="validate" name="cant_hotel" placeholder="Cant. personas">
-      </div>
-      <div class="input-field col s12 m6 center" style="padding-top: 10px">
-        <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+      <div class="row no-margin">
+        <div class="input-field col s12 m6">
+          <span class="material-icons prefix">person</span>
+          <input id="cant_hotel" type="number" class="validate" name="cant_hotel" placeholder="Cant. personas">
+        </div>
+        <div class="input-field col s12 m6 center" style="padding-top: 10px;">
+          <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+        </div>
       </div>
     </form>
   </div>
@@ -82,7 +84,7 @@
 <!-- FIN BUSCAR HOTEL -->
 
 <!-- BUSCAR AUTO -->
-<div class="card azul-gris z-depth-5" hidden>
+<div id="buscar_auto" class="card azul-gris z-depth-5" hidden>
   <div class="card-content white-text">
     <span class="card-title">Alquilá tu auto</span>
     <form action="#">
@@ -99,8 +101,8 @@
         <span class="material-icons prefix">date_range</span>
         <input id="devolucion" name="devolucion" type="text" class="datepicker" placeholder="Fecha de devolución">
       </div>
-      <div class="row center">
-        <div class="input-field col s12" style="padding-top: 10px">
+      <div class="row center no-margin">
+        <div class="input-field col s12" style="padding-top: 10px;">
           <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
         </div>
       </div>
