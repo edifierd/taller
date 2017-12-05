@@ -52,4 +52,15 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/compras", name="compras")
+     */
+    public function compras(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('carrito/compras.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
 }
