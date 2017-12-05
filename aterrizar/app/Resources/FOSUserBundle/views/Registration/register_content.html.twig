@@ -1,8 +1,27 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+    <div class="row">
+      <div class="input-field col s12 center">
+        <h1 class="logo-wrapper" style="padding-top: 30px">
+          <img class="brand-logo" src="{{asset('bundles/app/img/aterrizar_negro.png')}}" alt="materialize logo" height="65">
+        </h1>
+        <p class="center login-form-text">Resgístrate</p>
+      </div>
     </div>
-{{ form_end(form) }}
+
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    <div class="row margin">
+      <div class="col s12">
+        {{ form_widget(form) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input class="btn col s12" type="submit" value="{{ 'registration.submit'|trans }}" />
+      </div>
+    </div>
+    {{ form_end(form) }}
+  </div>
+</div>

@@ -13,6 +13,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   background-color: #37474F;
 }
 
+a {
+  color: #c2595e;
+}
+
 div.hours span{
   position: relative;
   background-color: white;
@@ -23,6 +27,10 @@ div.hours span{
 
 .btn, .btn-large, .btn-floating, .notification-badge, span.badge.new{
   background-color: #c2595e;
+}
+
+.btn:focus, .btn-large:focus, .btn-floating:focus {
+    background-color: #a74e52;
 }
 
 input:not([type]):focus:not([readonly]),
