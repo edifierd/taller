@@ -26,7 +26,7 @@ abstract class Servicio
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="ServicioReserva", inversedBy="servicios")
+     * @ORM\OneToMany(targetEntity="ServicioReserva", mappedBy="servicio", cascade={"persist"})
      */
     protected $servicio_reservas;
 

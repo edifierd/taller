@@ -31,13 +31,15 @@ class User extends BaseUser
 
     /**
      *
-     * @ORM\OneToOne(targetEntity="Carrito", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="Carrito", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(name="carrito_id", referencedColumnName="id")
      */
     private $carrito;
 
     public function __construct()
     {
         $this->reservas = new ArrayCollection();
+        $this->carrito = new Carrito();
     }
 
     /**
@@ -107,4 +109,5 @@ class User extends BaseUser
     {
         return $this->reservas;
     }
+
 }
