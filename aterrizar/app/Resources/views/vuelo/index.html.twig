@@ -1,47 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Vuelos list</h1>
+<div class="container">
+  <h1 class="light">Vuelos</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Precio</th>
-                <th>Aerolinea</th>
-                <th>Disponible</th>
-                <th>Fecha</th>
-                <th>Id</th>
-                <th>Imagen</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for vuelo in vuelos %}
-            <tr>
-                <td><a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">{{ vuelo.precio }}</a></td>
-                <td>{{ vuelo.aerolinea }}</td>
-                <td>{{ vuelo.disponible }}</td>
-                <td>{{ vuelo.fecha }}</td>
-                <td>{{ vuelo.id }}</td>
-                <td>{{ vuelo.imagen }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('vuelo_edit', { 'id': vuelo.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Precio</th>
+        <th>Aerolinea</th>
+        <th>Disponible</th>
+        <th>Fecha</th>
+        <th>Id</th>
+        <th>Imagen</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vuelo in vuelos %}
+      <tr>
+        <td><a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">{{ vuelo.precio }}</a></td>
+        <td>{{ vuelo.aerolinea }}</td>
+        <td>{{ vuelo.disponible }}</td>
+        <td>{{ vuelo.fecha }}</td>
+        <td>{{ vuelo.id }}</td>
+        <td>{{ vuelo.imagen }}</td>
+        <td>
+          <ul>
+            <li>
+              <a href="{{ path('vuelo_show', { 'id': vuelo.id }) }}">Ver</a>
+            </li>
+            <li>
+              <a href="{{ path('vuelo_edit', { 'id': vuelo.id }) }}">Editar</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('vuelo_new') }}">Create a new vuelo</a>
-        </li>
-    </ul>
+  <ul>
+    <li>
+      <a href="{{ path('vuelo_new') }}">Agregar vuelo</a>
+    </li>
+  </ul>
+
+</div>
 {% endblock %}

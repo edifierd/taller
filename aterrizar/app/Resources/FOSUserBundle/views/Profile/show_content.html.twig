@@ -1,6 +1,25 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+    <div class="row">
+      <div class="input-field col s12 center">
+        <h1 class="logo-wrapper" style="padding-top: 30px">
+          <img class="brand-logo" src="{{asset('bundles/app/img/aterrizar_negro.png')}}" alt="materialize logo" height="65">
+        </h1>
+      </div>
+    </div>
+
+    <div class="fos_user_user_show">
+      <div class="input-field col s12">
+        <label for="usuario">{{ 'profile.show.username'|trans }}</label>
+        <input type="text" name="usuario" value="{{ user.username }}" disabled>
+      </div>
+      <div class="input-field col s12">
+        <label for="usuario">{{ 'profile.show.email'|trans }}</label>
+        <input type="text" name="usuario" value="{{ user.email }}" disabled>
+      </div>
+    </div>
+
+  </div>
 </div>

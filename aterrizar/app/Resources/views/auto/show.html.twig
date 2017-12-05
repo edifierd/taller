@@ -1,40 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Auto</h1>
+<div class="container">
+  <h1 class="light">Auto</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ auto.id }}</td>
-            </tr>
-            <tr>
-                <th>Precio</th>
-                <td>{{ auto.precio }}</td>
-            </tr>
-            <tr>
-                <th>Empresa</th>
-                <td>{{ auto.empresa }}</td>
-            </tr>
-            <tr>
-                <th>Modelo</th>
-                <td>{{ auto.modelo }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <table>
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ auto.id }}</td>
+      </tr>
+      <tr>
+        <th>Precio</th>
+        <td>{{ auto.precio }}</td>
+      </tr>
+      <tr>
+        <th>Empresa</th>
+        <td>{{ auto.empresa }}</td>
+      </tr>
+      <tr>
+        <th>Modelo</th>
+        <td>{{ auto.modelo }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('auto_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('auto_edit', { 'id': auto.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+  <ul>
+    <li>
+      <a href="{{ path('auto_index') }}">Volver a la lista</a>
+    </li>
+    <li>
+      <a href="{{ path('auto_edit', { 'id': auto.id }) }}">Editar</a>
+    </li>
+    <li>
+      {{ form_start(delete_form) }}
+      <input type="submit" value="Eliminar">
+      {{ form_end(delete_form) }}
+    </li>
+  </ul>
+</div>
+
 {% endblock %}
