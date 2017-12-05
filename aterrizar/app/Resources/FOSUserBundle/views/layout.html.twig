@@ -17,8 +17,10 @@
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
-                    <div class="flash-{{ type }}">
-                        {{ message }}
+                    <div id="toast-container">
+                      <div class="toast {{ type }}" style="top: 0px; opacity: 1; max-width: 600px;">
+                        <span>{{ message }}</span>
+                      </div>
                     </div>
                 {% endfor %}
             {% endfor %}

@@ -1,13 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div id="toast-container">
-  <div class="toast" style="top: 0px; opacity: 1; max-width: 600px; display: none">
-    <span>Aca van las notificaciones</span>
-    <button class="btn-flat toast-action">Deshacer</button>
-  </div>
-</div>
-
 <div class="portada valign-wrapper">
   <div class="row valign-wrapper" style="margin: 0; width: 100%">
     <div class="col s12 m12 hide-on-large-only">
@@ -24,12 +17,12 @@
 
 <div class="container">
   <div class="section">
+    <h4 class="center-align light">Vuelos baratos: encontrá ahora tu Vuelo</h4>
     <div id="ecommerce-offer">
-
-      {% for i in 0..10 %}
       <!-- statr items list -->
       <div id="item-posts" class="row">
         <div class="item-sizer"></div>
+        {% for i in 1..5 %}
 
         <div class="item product">
           <div class="card">
@@ -72,8 +65,8 @@
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
 
       </div>
     </div>
