@@ -261,4 +261,8 @@ class Vuelo extends Servicio
       $horas = $horas + ($fec->days*24);
       return $horas."hs"." ".$fec->m."min";
     }
+
+    public function getPrecioEntre($f1, $f2) {
+      return $this->precio;
+    }
 }

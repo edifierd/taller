@@ -122,6 +122,14 @@
               <div class="row no-margin padding">
                 <p><span class="left">Vuelo de {{ reserva.servicio.aerolinea }}</span><span class="right">$ {{ reserva.servicio.precio }}</span></p>
               </div>
+              {% elseif reserva.tipo == "Hotel" %}
+              <div class="row no-margin padding">
+                <p><span class="left">Hotel {{ reserva.servicio.nombre }}</span><span class="right">$ {{ reserva.precio }}</span></p>
+              </div>
+              {% elseif reserva.tipo == "Auto" %}
+              <div class="row no-margin padding">
+                <p><span class="left">Empresa {{ reserva.servicio.empresa }} - {{ reserva.servicio.modelo }}</span><span class="right">$ {{ reserva.precio }}</span></p>
+              </div>
               {% endif %}
           {% endfor %}
 

@@ -10,4 +10,19 @@ namespace AppBundle\Repository;
  */
 class AutoRepository extends \Doctrine\ORM\EntityRepository
 {
+
+  public function getAutosByBusqueda($destino, $fecha_inicio, $fecha_fin) {
+    $em = $this->getEntityManager();
+    $qb = $em->createQueryBuilder();
+
+    $qb->select('a')
+      ->from('AppBundle:Auto', 'a')
+      ->innerJoin('a.ubicacion', 'u')
+      ->where('u.id = :destino');
+
+    $qb->setParameter('destino', $destino);
+
+    return $qb->getQuery()->getResult();
+  }
+
 }

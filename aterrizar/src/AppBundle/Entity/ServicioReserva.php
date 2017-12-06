@@ -232,4 +232,9 @@ class ServicioReserva
     {
         return $this->reserva;
     }
+
+    public function getPrecio()
+    {
+        return $this->servicio->getPrecioEntre($this->fechaInicio, $this->fechaFin);
+    }
 }

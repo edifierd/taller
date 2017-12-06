@@ -240,7 +240,7 @@ class Reserva
     {
       $precio = 0;
       foreach ($this->getServiciosReserva() as $servicio_reserva) {
-        $precio += $servicio_reserva->getServicio()->getPrecio();
+        $precio += $servicio_reserva->getPrecio();
       }
       return $precio;
     }

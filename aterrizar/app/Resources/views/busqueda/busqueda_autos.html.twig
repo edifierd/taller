@@ -11,17 +11,17 @@
 
 <div class="col s12 m7">
 
-{% if not hoteles is empty %}
-  {% for hotel in hoteles %}
+{% if not autos is empty %}
+  {% for auto in autos %}
   <div class="col s12">
     <div class="card hoverable darken-1">
       <div class="card-content valign-wrapper">
         <div class="col s2 center">
-          <i class="material-icons large t-rojo">hotel</i>
+          <i class="material-icons large t-rojo">directions_car</i>
         </div>
         <div class="col s10">
-          <span class="card-title">{{ hotel.nombre }}</span>
-          <span class="badge">${{ hotel.precio }} x día</span>
+          <span class="card-title">{{ auto.empresa }} - {{ auto.modelo }}</span>
+          <span class="badge">${{ auto.precio }} x día</span>
           <div class="col s3">
             <p>
               <span>Desde</span>
@@ -42,7 +42,7 @@
       </div>
       <div class="card-action">
         <form action="{{ path("agregar_carrito") }}" method="post">
-          <input type="hidden" name="id" value="{{ hotel.id }}">
+          <input type="hidden" name="id" value="{{ auto.id }}">
           <input type="hidden" name="fecha_inicio" value="{{ form.fecha_inicio|date("Y/m/d H:m:s") }}">
           <input type="hidden" name="fecha_fin" value="{{ form.fecha_fin|date("Y/m/d H:m:s") }}">
           <input class="btn" type="submit" value="Agregar al carrito">
@@ -68,7 +68,7 @@
   <div class="card azul-gris border-radius-3">
     <div class="card-content center">
       <img src="https://ar.staticontent.com/shop/flights/css-versioned/9.14.0/despegar/core-flights/img/alerts-icon.svg" class="width-40 border-round z-depth-5">
-      <h5 class="white-text lighten-4">Recibe alertas de hoteles</h5>
+      <h5 class="white-text lighten-4">Recibe alertas de autos</h5>
       <!-- <p class="white-text lighten-4">Por menos de $ 24.282</p> -->
     </div>
   </div>

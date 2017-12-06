@@ -163,4 +163,9 @@ class Auto extends Servicio
 
     }
 
+    public function getPrecioEntre($f1, $f2) {
+      $fec = date_diff($f1, $f2);
+      return $this->precio * $fec->d;
+    }
+
 }

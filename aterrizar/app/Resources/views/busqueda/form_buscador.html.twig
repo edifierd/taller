@@ -63,26 +63,27 @@
 <div id="buscar_auto" class="card azul-gris z-depth-5" hidden>
   <div class="card-content white-text">
     <span class="card-title">Alquilá tu auto</span>
-    <form action="#">
+      {{ form_start(form_auto) }}
       <div class="input-field col s12">
         <span class="material-icons prefix">room</span>
-        <input id="ciudad_auto" class="validate" name="ciudad_auto" type="text" placeholder="Ciudad">
+        {{ form_widget(form_auto.destino) }}
       </div>
       <label class="col s12 white-text">FECHAS</label>
       <div class="input-field col s12 m6">
         <span class="material-icons prefix">date_range</span>
-        <input id="alquiler" name="alquiler" type="text" class="datepicker" placeholder="Fecha de alquiler">
+        {{ form_widget(form_auto.fecha_inicio) }}
       </div>
       <div class="input-field col s12 m6">
         <span class="material-icons prefix">date_range</span>
-        <input id="devolucion" name="devolucion" type="text" class="datepicker" placeholder="Fecha de devolución">
+        {{ form_widget(form_auto.fecha_fin) }}
       </div>
       <div class="row center no-margin">
         <div class="input-field col s12" style="padding-top: 10px;">
-          <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+          {{ form_widget(form_auto.buscar_auto) }}
         </div>
       </div>
-    </form>
+      {{ form_rest(form_auto) }}
+      {{ form_end(form_auto) }}
   </div>
 </div>
 <!-- FIN BUSCAR AUTO -->

@@ -13,7 +13,7 @@ class HotelType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('id')->add('precio')->add('nombre')->add('disponibilidad')->add('ubicacion');
+        $builder->add('precio')->add('nombre')->add('disponibilidad')->add('imagen')->add('ubicacion');
     }
     
     /**

@@ -1,23 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-
-</div>
     <h1>Auto edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input class="btn green" type="submit" value="Editar" />
+        <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('auto_index') }}">Volver a la lista</a>
+            <a href="{{ path('auto_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input class="btn" type="submit" value="Borrar">
+                <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

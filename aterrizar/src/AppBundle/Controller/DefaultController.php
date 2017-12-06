@@ -31,10 +31,19 @@ class DefaultController extends Controller
           ->add('fecha_fin', TextType::class, array("required" => true, "attr" => array("placeholder" => "Salida", "class" => "datepicker")))
           ->add('buscar_hotel', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
           ->getForm();
+
+      $form_auto = $this->get('form.factory')->createNamedBuilder("form_auto")
+          ->setAction($this->generateUrl('busqueda_autos'))
+          ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
+          ->add('fecha_inicio', TextType::class, array("required" => true, "attr" => array("placeholder" => "Fecha de alquiler", "class" => "datepicker")))
+          ->add('fecha_fin', TextType::class, array("required" => true, "attr" => array("placeholder" => "Fecha de devolucion", "class" => "datepicker")))
+          ->add('buscar_auto', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
+          ->getForm();
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'form_vuelo' => $form_vuelo->createView(),
             'form_hotel' => $form_hotel->createView(),
+            'form_auto' => $form_auto->createView(),
         ]);
 
     }

@@ -48,74 +48,80 @@
                   </div>
 
                 </div>
+              </div>
+              <div class="card-action">
+                <a href="{{ path("eliminar_carrito", {"id": reserva.id}) }}">Eliminar</a>
+              </div>
+            </div>
+          </div>
+          {% elseif reserva.tipo == "Hotel" %}
+          <div class="col s12">
+            <div class="card hoverable darken-1">
+              <div class="card-content valign-wrapper">
+                <div class="col s2 center">
+                  <i class="material-icons large t-rojo">hotel</i>
+                </div>
+                <div class="col s10">
+                  <span class="card-title">{{ reserva.servicio.nombre }}</span>
+                  <span class="badge">${{ reserva.servicio.precio }} x día</span>
+                  <div class="col s3">
+                    <p>
+                      <span>Desde</span>
+                      <span style="border: 1px solid #c2595e; padding: 10px;"> {{ reserva.fechaInicio|date("d/m/Y") }} </span>
+                    </p>
+                  </div>
+                  <div class="col s3 hours">
+                    <hr>
+                    <!-- <span class="center-align">7 dias</span> -->
+                  </div>
+                  <div class="col s3">
+                    <p>
+                      <span>Hasta</span>
+                      <span style="border: 1px solid #c2595e; padding: 10px;"> {{ reserva.fechaFin|date("d/m/Y") }} </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action">
+                <a href="{{ path("eliminar_carrito", {"id": reserva.id}) }}">Eliminar</a>
+              </div>
+            </div>
+          </div>
+          {% elseif reserva.tipo == "Auto" %}
+          <div class="col s12">
+            <div class="card hoverable darken-1">
+              <div class="card-content valign-wrapper">
+                <div class="col s2 center">
+                  <i class="material-icons large t-rojo">directions_car</i>
+                </div>
+                <div class="col s10">
+                  <span class="card-title">{{ reserva.servicio.empresa }} - {{ reserva.servicio.modelo }}</span>
+                  <span class="badge">${{ reserva.servicio.precio }} x día</span>
+                  <div class="col s3">
+                    <p>
+                      <span>Desde</span>
+                      <span style="border: 1px solid #c2595e; padding: 10px;"> {{ reserva.fechaInicio|date("d/m/Y") }} </span>
+                    </p>
+                  </div>
+                  <div class="col s2 hours">
+                    <hr>
+                    <!-- <span class="center-align">7 dias</span> -->
+                  </div>
+                  <div class="col s3">
+                    <p>
+                      <span>Hasta</span>
+                      <span style="border: 1px solid #c2595e; padding: 10px;"> {{ reserva.fechaFin|date("d/m/Y") }} </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action">
                 <a href="{{ path("eliminar_carrito", {"id": reserva.id}) }}">Eliminar</a>
               </div>
             </div>
           </div>
           {% endif %}
       {% endfor %}
-
-
-
-      <div class="col s12">
-        <div class="card hoverable darken-1">
-          <div class="card-content valign-wrapper">
-            <div class="col s2 center">
-              <i class="material-icons large t-rojo">hotel</i>
-            </div>
-            <div class="col s10">
-              <span class="card-title">Hotel La Casa de Carmen</span>
-              <span class="badge">$4.200</span>
-              <div class="col s3">
-                <p>
-                  <span>Desde</span>
-                  <span style="border: 1px solid #c2595e; padding: 10px;"> 10/12/2017 </span>
-                </p>
-              </div>
-              <div class="col s4 hours">
-                <hr>
-                <!-- <span class="center-align">7 dias</span> -->
-              </div>
-              <div class="col s3">
-                <p>
-                  <span>Hasta</span>
-                  <span style="border: 1px solid #c2595e; padding: 10px;"> 17/12/2017 </span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12">
-        <div class="card hoverable darken-1">
-          <div class="card-content valign-wrapper">
-            <div class="col s2 center">
-              <i class="material-icons large t-rojo">directions_car</i>
-            </div>
-            <div class="col s10">
-              <span class="card-title">Rent-A-Car</span>
-              <span class="badge">$2.250</span>
-              <div class="col s3">
-                <p>
-                  <span>Desde</span>
-                  <span style="border: 1px solid #c2595e; padding: 10px;"> 10/12/2017 </span>
-                </p>
-              </div>
-              <div class="col s4 hours">
-                <hr>
-                <!-- <span class="center-align">7 dias</span> -->
-              </div>
-              <div class="col s3">
-                <p>
-                  <span>Hasta</span>
-                  <span style="border: 1px solid #c2595e; padding: 10px;"> 17/12/2017 </span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- FIN ITEMS -->
 
 
@@ -129,6 +135,14 @@
               {% if reserva.tipo == "Vuelo" %}
               <div class="row no-margin padding">
                 <p><span class="left">Vuelo de {{ reserva.servicio.aerolinea }}</span><span class="right">$ {{ reserva.servicio.precio }}</span></p>
+              </div>
+              {% elseif reserva.tipo == "Hotel" %}
+              <div class="row no-margin padding">
+                <p><span class="left">Hotel {{ reserva.servicio.nombre }}</span><span class="right">$ {{ reserva.precio }}</span></p>
+              </div>
+              {% elseif reserva.tipo == "Auto" %}
+              <div class="row no-margin padding">
+                <p><span class="left">Empresa {{ reserva.servicio.empresa }} - {{ reserva.servicio.modelo }}</span><span class="right">$ {{ reserva.precio }}</span></p>
               </div>
               {% endif %}
           {% endfor %}

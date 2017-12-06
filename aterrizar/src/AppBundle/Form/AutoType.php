@@ -13,7 +13,7 @@ class AutoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('id')->add('precio')->add('empresa')->add('modelo')->add('ubicacion');
+        $builder->add('precio')->add('empresa')->add('modelo')->add('imagen')->add('ubicacion');
     }
     
     /**
