@@ -109,4 +109,14 @@ class Carrito
     {
         return $this->servicios_reserva;
     }
+
+    public function getPrecio()
+    {
+      $precio = 0;
+      foreach ($this->getServiciosReserva() as $servicio_reserva) {
+        $precio += $servicio_reserva->getServicio()->getPrecio();
+      }
+      return $precio;
+    }
+
 }

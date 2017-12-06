@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <h1 class="light center-align">Compras realizadas</h1>
+
+    {% for compra in compras %}
+      <a href="{{ path("compra_show",{"id": compra.id}) }}">{{ compra.id }} - ${{ compra.precio }}</a><br>
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock %}

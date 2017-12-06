@@ -250,4 +250,8 @@ class Vuelo extends Servicio
     {
         return $this->fecha_llegada;
     }
+
+    public function actualizar(){
+      $this->disponible -= 1;
+    }
 }

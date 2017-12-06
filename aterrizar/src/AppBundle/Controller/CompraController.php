@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Reserva;
 
 class CompraController extends Controller
 {
@@ -13,18 +15,60 @@ class CompraController extends Controller
    */
   public function nuevaCompra(Request $request){
 
-    $form_vuelo = $this->createFormBuilder()
-        ->setAction($this->generateUrl('busqueda_vuelos'))
-        ->add('origen', EntityType::class, array("class" => "AppBundle:Ubicacion",'placeholder'  => 'Seleccione un origen', "attr" => array("placeholder" => "Origen")))
-        ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
-        ->add('fecha', TextType::class, array("required" => true, "attr" => array("placeholder" => "Fecha", "class" => "datepicker")))
-        ->add('buscar', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
-        ->getForm();
-      // replace this example code with whatever you need
-      return $this->render('default/index.html.twig', [
-          'form_vuelo' => $form_vuelo->createView(),
-      ]);
+      $em = $this->getDoctrine()->getManager();
+      $reserva = new Reserva();
+      $reserva->setUser($this->getUser());
+      $reserva->setFecha(new \DateTime());
 
+      foreach($this->getUser()->getCarrito()->getServiciosReserva() as $servicio_reserva){
+        $servicio_reserva->setCarrito(null);
+        $servicio_reserva->setReserva($reserva);
+        $servicio_reserva->getServicio()->actualizar();
+        $reserva->addServiciosReserva($servicio_reserva);
+      }
+
+      $this->getUser()->addReserva($reserva);
+      $em->persist($this->getUser());
+      $em->flush();
+
+      return $this->redirectToRoute('compras');
+
+  }
+
+  /**
+   * @Route("/compras/show/{id}", name="compra_show")
+   */
+  public function show(Request $request,$id){
+
+    $em = $this->getDoctrine()->getManager();
+    $reserva = $em->getRepository("AppBundle:Reserva")->find($id);
+
+    return $this->render('compra/compras.html.twig', [
+        'reserva' => $reserva,
+    ]);
+
+  }
+
+  /**
+   * @Route("/compras", name="compras")
+   */
+  public function verCompras(Request $request){
+
+    return $this->render('compra/listaCompras.html.twig', [
+        'compras' => $this->getUser()->getReservas(),
+    ]);
+
+  }
+
+  /**
+   * @Route("/compra/pago", name="pago")
+   */
+  public function pago(Request $request)
+  {
+      // replace this example code with whatever you need
+      return $this->render('compra/pago.html.twig', [
+
+      ]);
   }
 
 }

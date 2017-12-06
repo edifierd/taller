@@ -23,17 +23,13 @@ class Reserva
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="ServicioReserva")
-     * @ORM\JoinTable(name="reserva_servicios_reserva",
-     *      joinColumns={@ORM\JoinColumn(name="reserva_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="servicio_reserva_id", referencedColumnName="id")}
-     *      )
+     * @ORM\OneToMany(targetEntity="ServicioReserva", mappedBy="reserva", cascade={"persist", "remove"})
      */
     private $servicios_reserva;
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="reservas")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="reservas", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
@@ -238,5 +234,14 @@ class Reserva
     public function getServiciosReserva()
     {
         return $this->servicios_reserva;
+    }
+
+    public function getPrecio()
+    {
+      $precio = 0;
+      foreach ($this->getServiciosReserva() as $servicio_reserva) {
+        $precio += $servicio_reserva->getServicio()->getPrecio();
+      }
+      return $precio;
     }
 }

@@ -158,4 +158,8 @@ class Hotel extends Servicio
 
         return $this;
     }
+
+    public function actualizar(){
+
+    }
 }
