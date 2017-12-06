@@ -1,6 +1,6 @@
 <!-- BUSCAR VUELO -->
 
-
+<div id="servicio" data-id="{{servicio|default("buscar_vuelo")}}" ></div>
 
 <div id="buscar_vuelo" class="card azul-gris z-depth-5">
   <div class="card-content white-text">
@@ -34,26 +34,27 @@
 <div id="buscar_hotel" class="card azul-gris z-depth-5" hidden>
   <div class="card-content white-text">
     <span class="card-title">Buscá tu hotel</span>
-    <form action="#">
+    {{ form_start(form_hotel) }}
       <div class="input-field col s12">
         <span class="material-icons prefix">room</span>
-        <input id="ciudad_hotel" class="validate" name="ciudad_hotel" type="text" placeholder="Destino">
+        {{ form_widget(form_hotel.destino) }}
       </div>
       <label class="col s12 white-text">FECHAS</label>
       <div class="input-field col s12 m6">
         <span class="material-icons prefix">date_range</span>
-        <input id="checkin" name="checkin" type="text" class="datepicker" placeholder="Entrada">
+        {{ form_widget(form_hotel.fecha_inicio) }}
       </div>
       <div class="input-field col s12 m6">
         <span class="material-icons prefix">date_range</span>
-        <input id="checkout" name="checkout" type="text" class="datepicker" placeholder="Salida">
+        {{ form_widget(form_hotel.fecha_fin) }}
       </div>
       <div class="row no-margin center">
         <div class="input-field col s12" style="padding-top: 10px;">
-          <input class="btn waves-effect waves-light" type="submit" name="buscar" value="Buscar">
+          {{ form_widget(form_hotel.buscar) }}
         </div>
       </div>
-    </form>
+      {{ form_rest(form_hotel) }}
+      {{ form_end(form_hotel) }}
   </div>
 </div>
 <!-- FIN BUSCAR HOTEL -->

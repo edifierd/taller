@@ -254,4 +254,11 @@ class Vuelo extends Servicio
     public function actualizar(){
       $this->disponible -= 1;
     }
+
+    public function getDuracion(){
+      $fec = date_diff($this->fecha_llegada, $this->fecha);
+      $horas = $fec->h;
+      $horas = $horas + ($fec->days*24);
+      return $horas."hs"." ".$fec->m."min";
+    }
 }
