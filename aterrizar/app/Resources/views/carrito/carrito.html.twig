@@ -126,7 +126,7 @@
 
 
     </div>
-
+{% if not app.user.carrito.serviciosReserva is empty %}
     <div class="col s12 m4">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
@@ -161,6 +161,15 @@
         </div>
       </div>
     </div>
+    {% else %}
+    <div class="col s12 m12" style="margin-top:4%">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title center-align">Aun no has agregado servicios al carrito</span>
+        </div>
+      </div>
+    </div>
+    {% endif %}
 
   </div>
 </div>

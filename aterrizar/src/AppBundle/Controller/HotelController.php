@@ -6,10 +6,12 @@ use AppBundle\Entity\Hotel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Hotel controller.
- *
+ * @Security("has_role('ROLE_ADMIN')")
  * @Route("hotel")
  */
 class HotelController extends Controller

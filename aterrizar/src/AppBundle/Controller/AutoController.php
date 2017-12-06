@@ -6,10 +6,13 @@ use AppBundle\Entity\Auto;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * Auto controller.
- *
+ * @Security("has_role('ROLE_ADMIN')")
  * @Route("auto")
  */
 class AutoController extends Controller
