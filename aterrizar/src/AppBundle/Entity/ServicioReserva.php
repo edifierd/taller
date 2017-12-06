@@ -43,6 +43,13 @@ class ServicioReserva
     private $servicio;
 
     /**
+     *
+     * @ORM\ManyToOne(targetEntity="Carrito", inversedBy="servicios_reserva")
+     * @ORM\JoinColumn(name="carrito_id", referencedColumnName="id")
+     */
+    private $carrito;
+
+    /**
      * Get id
      *
      * @return int
@@ -169,5 +176,29 @@ class ServicioReserva
     {
       $path = explode('\\', get_class($this->servicio));
       return array_pop($path);
+    }
+
+    /**
+     * Set carrito
+     *
+     * @param \AppBundle\Entity\Carrito $carrito
+     *
+     * @return ServicioReserva
+     */
+    public function setCarrito(\AppBundle\Entity\Carrito $carrito = null)
+    {
+        $this->carrito = $carrito;
+
+        return $this;
+    }
+
+    /**
+     * Get carrito
+     *
+     * @return \AppBundle\Entity\Carrito
+     */
+    public function getCarrito()
+    {
+        return $this->carrito;
     }
 }

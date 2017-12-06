@@ -19,7 +19,7 @@
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <li>
           <a href="{{path('carrito')}}" class="waves-effect waves-block waves-light" data-activates="notifications-dropdown">
-            <i class="material-icons">shopping_cart<small class="notification-badge">3</small></i>
+            <i class="material-icons">shopping_cart{% if not app.user.carrito.serviciosReserva is empty %}<small class="notification-badge">{{ app.user.carrito.serviciosReserva|length }}</small>{% endif %}</i>
           </a>
           <!-- <ul id="notifications-dropdown" class="dropdown-content">
             <li>
