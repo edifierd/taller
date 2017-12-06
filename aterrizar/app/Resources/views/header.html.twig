@@ -67,5 +67,9 @@
     </div>
   </nav>
 </div>
+
+{% if app.request.get('_route') == 'homepage' OR app.request.get('_route') == 'busqueda_vuelos' %}
   {% include 'horizontal_nav.html.twig' %}
+{% endif %}
+
 </header>
