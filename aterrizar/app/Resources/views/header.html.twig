@@ -47,7 +47,7 @@
               <a href="{{ path('fos_user_profile_show') }}" class="grey-text text-darken-1"><i class="material-icons">face</i> Perfil</a>
             </li>
             <li>
-              <a href="{{ path('compras') }}" class="grey-text text-darken-1"><i class="material-icons">attach_money</i> Compras realizadas</a>
+              <a href="{{ path('lista_compras') }}" class="grey-text text-darken-1"><i class="material-icons">attach_money</i> Compras realizadas</a>
             </li>
             <li class="divider"></li>
             <li>
@@ -67,5 +67,9 @@
     </div>
   </nav>
 </div>
+
+{% if app.request.get('_route') == 'homepage' OR app.request.get('_route') == 'busqueda_vuelos' %}
   {% include 'horizontal_nav.html.twig' %}
+{% endif %}
+
 </header>
