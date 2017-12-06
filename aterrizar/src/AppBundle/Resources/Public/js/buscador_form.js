@@ -1,12 +1,26 @@
+$( document ).ready(function() {
+
+var id = $( "#servicio" ).attr( "data-id" );
+
+ocultar(id);
+
 $( "a" ).click(function() {
-  switch (this.id) {
+  ocultar(this.id);
+});
+
+function ocultar(id) {
+  switch (id) {
+
     case 'btn_vuelo':
+
     $('#buscar_hotel').hide();
     $('#buscar_auto').hide();
     $('#buscar_vuelo').show();
+
     $('#btn_hotel').parent('li').removeClass('active');
     $('#btn_auto').parent('li').removeClass('active');
     $('#btn_vuelo').parent('li').addClass('active');
+
     break;
 
     case 'btn_hotel':
@@ -28,6 +42,6 @@ $( "a" ).click(function() {
     break;
 
     default:
-
   }
+}
 });

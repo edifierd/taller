@@ -38,7 +38,7 @@ class BusquedaController extends Controller
           'vuelos' => $vuelos,
           'form_vuelo' => $form_vuelo->createView(),
           'form' => $form,
-          'servicio' => "buscar_vuelo"
+          'servicio' => "btn_vuelo"
         ]);
       }
   }
@@ -67,7 +67,7 @@ class BusquedaController extends Controller
           'hoteles' => $hoteles,
           'form_hotel' => $form_hotel->createView(),
           'form' => $form,
-          'servicio' => "buscar_hotel"
+          'servicio' => "btn_hotel"
         ]);
       }
   }
