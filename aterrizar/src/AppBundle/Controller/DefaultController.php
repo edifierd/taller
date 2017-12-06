@@ -43,14 +43,26 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/compras", name="compras")
+     * @Route("/ver_compra", name="ver_compra")
      */
-    public function compras(Request $request)
+    public function ver_compra(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('carrito/compras.html.twig', [
+        return $this->render('carrito/ver_compra.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/lista_compras", name="lista_compras")
+     */
+    public function lista_compras(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('carrito/lista_compras.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
 
 }

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <h1 class="light center-align">Compras realizadas</h1>
+    <p class="light texto-medium center-align">Estas son todas las compras hechas por usted hasta el dia de la fecha</p>
+    <div class="col s8 offset-s2">
+
+      <div class="card">
+        <div class="card-content">
+          <table class="striped centered">
+            <thead>
+              <tr>
+                <th data-field="numero">N° de compra</th>
+                <th data-field="fecha">Fecha</th>
+                <th data-field="precio">Precio</th>
+                <th data-field="servicios">Cantidad de servicios</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0218622</td>
+                <td>10/10/2017</td>
+                <td>$22.350</td>
+                <td>2</td>
+                <td><a href="{{path('ver_compra')}}">Ver detalle</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
