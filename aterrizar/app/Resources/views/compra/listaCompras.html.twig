@@ -6,9 +6,34 @@
   <div class="row">
     <h1 class="light center-align">Compras realizadas</h1>
 
-    {% for compra in compras %}
-      <a href="{{ path("compra_show",{"id": compra.id}) }}">{{ compra.id }} - ${{ compra.precio }}</a><br>
-    {% endfor %}
+    <p class="light texto-medium center-align">Estas son todas las compras hechas por usted hasta el día de la fecha</p>
+    <div class="col s8 offset-s2">
+      <div class="card">
+        <div class="card-content">
+          <table class="striped centered">
+            <thead>
+              <tr>
+                <th data-field="numero">N° de compra</th>
+                <th data-field="fecha">Fecha</th>
+                <th data-field="precio">Precio</th>
+                <th data-field="servicios">Cantidad de servicios</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for compra in compras %}
+              <tr>
+                <td>{{ compra.id }}</td>
+                <td>{{ compra.fecha|date("d/m/Y") }}</td>
+                <td>${{ compra.precio }}</td>
+                <td>{{ compra.serviciosReserva|length }}</td>
+                <td><a href="{{ path("compra_show",{"id": compra.id}) }}">Ver detalle</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
