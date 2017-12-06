@@ -68,7 +68,7 @@ class CompraController extends Controller
   {
       // replace this example code with whatever you need
       return $this->render('compra/pago.html.twig', [
-
+        'servicios_reserva' => $this->getUser()->getCarrito()->getServiciosReserva(),
       ]);
   }
 
