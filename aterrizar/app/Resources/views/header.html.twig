@@ -16,6 +16,9 @@
         <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Busca un destino">
       </div> -->
       <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="{{path('homepage')}}"><i class="material-icons">home</i></a>
+        </li>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <li>
           <a href="{{path('carrito')}}" class="waves-effect waves-block waves-light" data-activates="notifications-dropdown">
