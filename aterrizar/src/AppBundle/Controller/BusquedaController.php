@@ -35,8 +35,8 @@ class BusquedaController extends Controller
         $form_hotel = $this->createFormBuilder()
             ->setAction($this->generateUrl('busqueda_hoteles'))
             ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", "data" => $destino, 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
-            ->add('fecha_inicio', TextType::class, array("required" => true, "data" => $form["fecha_inicio"], "attr" => array("placeholder" => "Entrada", "class" => "datepicker")))
-            ->add('fecha_fin', TextType::class, array("required" => true, "data" => $form["fecha_fin"], "attr" => array("placeholder" => "Salida", "class" => "datepicker")))
+            ->add('fecha_inicio', TextType::class, array("required" => true, "attr" => array("placeholder" => "Entrada", "class" => "datepicker")))
+            ->add('fecha_fin', TextType::class, array("required" => true, "attr" => array("placeholder" => "Salida", "class" => "datepicker")))
             ->add('buscar_hotel', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
             ->getForm();
 
@@ -129,17 +129,17 @@ class BusquedaController extends Controller
 
         $form_hotel = $this->createFormBuilder()
             ->setAction($this->generateUrl('busqueda_hoteles'))
-            ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", "data" => $destino, 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
-            ->add('fecha_inicio', TextType::class, array("required" => true, "data" => $form["fecha_inicio"], "attr" => array("placeholder" => "Entrada", "class" => "datepicker")))
-            ->add('fecha_fin', TextType::class, array("required" => true, "data" => $form["fecha_fin"], "attr" => array("placeholder" => "Salida", "class" => "datepicker")))
+            ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
+            ->add('fecha_inicio', TextType::class, array("required" => true, "attr" => array("placeholder" => "Entrada", "class" => "datepicker")))
+            ->add('fecha_fin', TextType::class, array("required" => true, "attr" => array("placeholder" => "Salida", "class" => "datepicker")))
             ->add('buscar_hotel', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
             ->getForm();
 
         $form_auto = $this->get('form.factory')->createNamedBuilder("form_auto")
             ->setAction($this->generateUrl('busqueda_autos'))
-            ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
-            ->add('fecha_inicio', TextType::class, array("required" => true, "attr" => array("placeholder" => "Fecha de alquiler", "class" => "datepicker")))
-            ->add('fecha_fin', TextType::class, array("required" => true, "attr" => array("placeholder" => "Fecha de devolucion", "class" => "datepicker")))
+            ->add('destino', EntityType::class, array("class" => "AppBundle:Ubicacion", "data" => $destino, 'placeholder'  => 'Seleccione un destino', "attr" => array("placeholder" => "Destino")))
+            ->add('fecha_inicio', TextType::class, array("required" => true, "data" => $form["fecha_inicio"], "attr" => array("placeholder" => "Fecha de alquiler", "class" => "datepicker")))
+            ->add('fecha_fin', TextType::class, array("required" => true, "data" => $form["fecha_fin"], "attr" => array("placeholder" => "Fecha de devolucion", "class" => "datepicker")))
             ->add('buscar_auto', SubmitType::class, array('attr' => array('class' => 'btn waves-effect waves-light')))
             ->getForm();
 
