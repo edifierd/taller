@@ -61,15 +61,15 @@
         </li>
         {% endif %}
       </ul>
-      <!-- translation-button -->
-      <!-- notifications-dropdown -->
-      <!-- profile-dropdown -->
     </div>
   </nav>
 </div>
 
-{% if app.request.get('_route') == 'homepage' OR app.request.get('_route') == 'busqueda_vuelos' %}
-  {% include 'horizontal_nav.html.twig' %}
+{% if app.request.get('_route') == 'homepage'
+  or app.request.get('_route') == 'busqueda_vuelos'
+  or app.request.get('_route') == 'busqueda_autos'
+  or app.request.get('_route') == 'busqueda_hoteles'%}
+    {% include 'horizontal_nav.html.twig' %}
 {% endif %}
 
 </header>
