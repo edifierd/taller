@@ -20,23 +20,23 @@ $('.datepicker').pickadate({
   closeOnSelect: false // Close upon selecting a date,
 });
 
-function checkDate() {
-  if ($('.datepicker').val() == '') {
-    $('.datepicker').addClass('invalid');
-    return false;
-  } else {
-    $('.datepicker').removeClass('invalid');
-    return true;
-  }
-}
+// function checkDate(form) {
+//   if ($('.datepicker').val() == '') {
+//     $('.datepicker').addClass('invalid');
+//     return false;
+//   } else {
+//     $('.datepicker').removeClass('invalid');
+//     return true;
+//   }
+// }
+//
+// $('form').submit(function() {
+//   return checkDate(this);
+// });
 
-$('form').submit(function() {
-  return checkDate();
-});
-
-$('.datepicker').change(function() {
-  checkDate();
-});
+// $('.datepicker').change(function() {
+//   checkDate();
+// });
 
 
 $("#opciones input[type='radio']").click(function(){

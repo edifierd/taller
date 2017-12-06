@@ -10,4 +10,21 @@ namespace AppBundle\Repository;
  */
 class HotelRepository extends \Doctrine\ORM\EntityRepository
 {
+
+  public function getHotelesByBusqueda($destino, $fecha_inicio, $fecha_fin, $cant_personas) {
+    $em = $this->getEntityManager();
+    $qb = $em->createQueryBuilder();
+
+    $qb->select('h')
+      ->from('AppBundle:Hotel', 'h')
+      ->innerJoin('h.ubicacion', 'u')
+      ->where('u.id = :destino')
+      ->andWhere('h.disponibilidad >= :cant');
+
+    $qb->setParameter('destino', $destino);
+    $qb->setParameter('cant', $cant_personas);
+
+    return $qb->getQuery()->getResult();
+  }
+
 }
