@@ -4,12 +4,12 @@
 
 <div class="container">
   <div class="row">
-    <h1 class="light center-align">Este es tu carrito</h1>
+    <h1 class="light center-align">Detalle de la compra {{ reserva.id }}</h1>
 
-    <div class="col s12 m8">
+    <div class="col s8 offset-s2">
       <!-- ITEMS DEL CARRITO -->
 
-      {% for reserva in servicios_reserva %}
+      {% for reserva in reserva.serviciosReserva %}
           {% if reserva.tipo == "Vuelo" %}
           <div class="col s12">
             <div class="card hoverable darken-1">
@@ -48,14 +48,11 @@
                   </div>
 
                 </div>
-                <a href="{{ path("eliminar_carrito", {"id": reserva.id}) }}">Eliminar</a>
               </div>
             </div>
           </div>
           {% endif %}
       {% endfor %}
-
-
 
       <div class="col s12">
         <div class="card hoverable darken-1">
@@ -121,23 +118,21 @@
 
     </div>
 
-    <div class="col s12 m4">
+    <!-- <div class="col s12 m4">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title center-align">Detalle de la compra</span>
-          {% for reserva in servicios_reserva %}
-              {% if reserva.tipo == "Vuelo" %}
-              <div class="row no-margin padding">
-                <p><span class="left">Vuelo de {{ reserva.servicio.aerolinea }}</span><span class="right">$ {{ reserva.servicio.precio }}</span></p>
-              </div>
-              {% endif %}
-          {% endfor %}
-
-          <!-- <div class="row no-margin padding">
+          <div class="row no-margin padding">
+            <p><span class="left">Pasaje</span><span class="right">$ 480</span></p>
+          </div>
+          <div class="row no-margin padding">
+            <p><span class="left">Impuestos, tasas y cargos</span><span class="right">$ 22.408</span></p>
+          </div>
+          <div class="row no-margin padding">
             <p><span class="left green-text">Descuento Aterrizar.com</span><span class="right">- $ 42.216</span></p>
-          </div> -->
+          </div>
           <div class="row no-margin total padding">
-            <p class="texto-medium light"><span class="left big">Total a pagar</span><span class="right bold"> $ {{ app.user.carrito.precio }}</span></p>
+            <p class="texto-medium light"><span class="left big">Total a pagar</span><span class="right bold"> $ 91.382</span></p>
           </div>
         </div>
         <div class="card-action">
@@ -146,7 +141,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </div>

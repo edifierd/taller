@@ -44,10 +44,17 @@ class ServicioReserva
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="Carrito", inversedBy="servicios_reserva")
+     * @ORM\ManyToOne(targetEntity="Carrito", inversedBy="servicios_reserva", cascade={"persist"})
      * @ORM\JoinColumn(name="carrito_id", referencedColumnName="id")
      */
     private $carrito;
+
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Reserva", inversedBy="servicios_reserva", cascade={"persist"})
+     * @ORM\JoinColumn(name="reserva_id", referencedColumnName="id")
+     */
+    private $reserva;
 
     /**
      * Get id
@@ -200,5 +207,29 @@ class ServicioReserva
     public function getCarrito()
     {
         return $this->carrito;
+    }
+
+    /**
+     * Set reserva
+     *
+     * @param \AppBundle\Entity\Reserva $reserva
+     *
+     * @return ServicioReserva
+     */
+    public function setReserva(\AppBundle\Entity\Reserva $reserva = null)
+    {
+        $this->reserva = $reserva;
+
+        return $this;
+    }
+
+    /**
+     * Get reserva
+     *
+     * @return \AppBundle\Entity\Reserva
+     */
+    public function getReserva()
+    {
+        return $this->reserva;
     }
 }

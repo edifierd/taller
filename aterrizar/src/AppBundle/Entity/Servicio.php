@@ -142,8 +142,11 @@ abstract class Servicio
      *
      * @return string
      */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
+     public function getImagen()
+     {
+         return $this->imagen;
+     }
+
+
+     public abstract function actualizar();
 }

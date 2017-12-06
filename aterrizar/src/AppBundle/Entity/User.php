@@ -25,7 +25,7 @@ class User extends BaseUser
 
     /**
      *
-     * @ORM\OneToMany(targetEntity="Reserva", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Reserva", mappedBy="user", cascade={"persist", "remove"})
      */
     private $reservas;
 

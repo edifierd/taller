@@ -158,4 +158,9 @@ class Auto extends Servicio
 
         return $this;
     }
+
+    public function actualizar(){
+
+    }
+
 }
