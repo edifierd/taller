@@ -6,7 +6,7 @@
   <div class="row">
     <h1 class="light center-align">Detalle de la compra {{ reserva.id }}</h1>
 
-    <div class="col s8 offset-s2">
+    <div class="col s12 m8">
       <!-- ITEMS DEL CARRITO -->
 
       {% for reserva in reserva.serviciosReserva %}
@@ -118,7 +118,7 @@
 
     </div>
 
-    <!-- <div class="col s12 m4">
+    <div class="col s12 m4">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title center-align">Detalle de la compra</span>
@@ -135,13 +135,8 @@
             <p class="texto-medium light"><span class="left big">Total a pagar</span><span class="right bold"> $ 91.382</span></p>
           </div>
         </div>
-        <div class="card-action">
-          <div class="row center no-margin">
-            <a href="{{path('pago')}}" class="btn waves-effect waves-light">Comprar</a>
-          </div>
-        </div>
       </div>
-    </div> -->
+    </div>
 
   </div>
 </div>
